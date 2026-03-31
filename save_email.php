@@ -18,7 +18,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
-$file = __DIR__ . '/emails.csv';
+$file = dirname(__DIR__) . '/emails.csv';
 $line = date('Y-m-d H:i:s') . ',' . $email . "\n";
 file_put_contents($file, $line, FILE_APPEND | LOCK_EX);
 
