@@ -26,14 +26,17 @@ if (waitlistForm) {
 
     if (!email) return;
 
-    // TODO: wire up to your email capture backend / service (e.g. Mailchimp, ConvertKit, Resend)
-    console.log('Waitlist signup:', email);
-
-    waitlistForm.innerHTML = `
-      <p style="color: var(--color-primary); font-weight: 600; font-size: 1.05rem;">
-        You're on the list! We'll be in touch.
-      </p>
-    `;
+    fetch('/save_email.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email })
+    }).then(() => {
+      waitlistForm.innerHTML = `
+        <p style="color: var(--color-primary); font-weight: 600; font-size: 1.05rem;">
+          You're on the list! We'll be in touch.
+        </p>
+      `;
+    });
   });
 }
 
