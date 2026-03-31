@@ -12,9 +12,9 @@
   --color-surface: #111418;
   --color-surface-2: #1a1f26;
   --color-border: #232930;
-  --color-primary: #22c55e;
-  --color-primary-dark: #16a34a;
-  --color-primary-glow: rgba(34, 197, 94, 0.15);
+  --color-primary: #a6ceff;
+  --color-primary-dark: #7ab0f5;
+  --color-primary-glow: rgba(166, 206, 255, 0.15);
   --color-text: #f1f5f9;
   --color-text-muted: #94a3b8;
   --color-text-dim: #64748b;
@@ -173,7 +173,7 @@ img {
    HERO
    ========================================= */
 .hero {
-  padding: 96px 0 80px;
+  padding: 30px 0 20px;
   text-align: center;
   position: relative;
   overflow: hidden;
