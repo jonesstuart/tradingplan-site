@@ -3,180 +3,881 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="TradingPlan.io — Build, track, and stick to your trading plan. Stay disciplined, trade smarter." />
-  <title>TradingPlan.io — Trade with a Plan</title>
-  <link rel="stylesheet" href="css/main.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <title>TradingPlan — Rules, Routine, Psychology</title>
+  <meta name="description" content="TradingPlan is the first native Apple app built to help serious traders build a complete trading plan and live by it every single day." />
+  <meta property="og:title" content="TradingPlan — Rules, Routine, Psychology" />
+  <meta property="og:description" content="The first native Apple app built to help serious traders build a complete trading plan and live by it every single day." />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+    :root {
+      --bg: #0A0A0F;
+      --surface: #12121A;
+      --gold: #C9A84C;
+      --white: #F0F0F0;
+      --muted: #6B6B7B;
+      --danger: #8B1A1A;
+      --border: #1E1E2E;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+      --font-sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── LAYOUT ── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ── GOLD RULE MOTIF ── */
+    .gold-rule { position: relative; padding-left: 2rem; }
+    @media (min-width: 1024px) {
+      .gold-rule::before {
+        content: '';
+        position: absolute;
+        left: 0; top: 0; bottom: 0;
+        width: 2px;
+        background: var(--gold);
+      }
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.is-visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+    .delay-5 { transition-delay: 0.5s; }
+    .delay-6 { transition-delay: 0.6s; }
+
+    /* ── GOLD UNDERLINE DRAW ── */
+    .gold-underline { position: relative; display: inline; }
+    .gold-underline::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 2px;
+      background: var(--gold);
+      transition: width 1s ease 0.4s;
+    }
+    .gold-underline.is-visible::after { width: 100%; }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.65rem 1.5rem;
+      border-radius: 3px;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn--gold { background: var(--gold); color: #0A0A0F; font-weight: 600; }
+    .btn--gold:hover { background: #d9b85c; transform: translateY(-1px); }
+    .btn--gold:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .btn--lg { padding: 0.9rem 2rem; font-size: 1rem; }
+
+    /* ══════════════════════════════════════════════════
+       NAV
+    ══════════════════════════════════════════════════ */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(10, 10, 15, 0.88);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav__left { display: flex; align-items: center; gap: 1rem; }
+    .nav__logo {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .nav__tagline {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      display: none;
+    }
+    @media (min-width: 768px) { .nav__tagline { display: inline; } }
+
+    /* ══════════════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════════════ */
+    .hero { padding: 6rem 0 5rem; }
+    @media (min-width: 1024px) { .hero { padding: 9rem 0 7rem; } }
+
+    .hero__inner { max-width: 820px; }
+    .hero__title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: var(--white);
+    }
+    .hero__title em { font-style: italic; color: var(--gold); }
+    .hero__sub {
+      font-size: 1.05rem;
+      color: rgba(240,240,240,0.65);
+      max-width: 680px;
+      margin-bottom: 3rem;
+      line-height: 1.85;
+    }
+
+    .hero__stats {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+    }
+    @media (min-width: 600px) { .hero__stats { grid-template-columns: repeat(3, 1fr); gap: 2rem; } }
+
+    .stat__value {
+      font-family: var(--font-mono);
+      font-size: 1.9rem;
+      font-weight: 500;
+      color: var(--gold);
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .stat__label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      line-height: 1.5;
+    }
+
+    .hero__cta { display: flex; flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+    .hero__note { font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted); }
+
+    /* ══════════════════════════════════════════════════
+       PROBLEM
+    ══════════════════════════════════════════════════ */
+    .problem { padding: 6rem 0; border-top: 1px solid var(--border); }
+    .problem__inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
+    @media (min-width: 1024px) {
+      .problem__inner { grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+    }
+    .problem__headline {
+      font-family: var(--font-serif);
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    .problem__body { color: rgba(240,240,240,0.6); font-size: 0.975rem; line-height: 1.9; }
+    .problem__cards { display: flex; flex-direction: column; gap: 1.25rem; }
+    .pain-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      padding: 1.5rem;
+    }
+    .pain-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: var(--white);
+    }
+    .pain-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.75; }
+
+    /* ══════════════════════════════════════════════════
+       SOLUTION
+    ══════════════════════════════════════════════════ */
+    .solution {
+      padding: 6rem 0;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .solution__intro { max-width: 680px; margin-bottom: 4rem; }
+    .solution__headline {
+      font-family: var(--font-serif);
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    .solution__body { color: rgba(240,240,240,0.6); line-height: 1.85; }
+
+    .features__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    @media (min-width: 600px) { .features__grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .features__grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .feature-card {
+      padding: 1.75rem;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      transition: border-color 0.25s;
+    }
+    .feature-card:hover { border-color: rgba(201,168,76,0.5); }
+    .feature-card__gem {
+      width: 22px; height: 22px;
+      background: var(--gold);
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      margin-bottom: 1.25rem;
+    }
+    .feature-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.025rem;
+      margin-bottom: 0.6rem;
+      color: var(--white);
+    }
+    .feature-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.75; }
+
+    /* ══════════════════════════════════════════════════
+       HOW IT WORKS
+    ══════════════════════════════════════════════════ */
+    .how { padding: 6rem 0; border-bottom: 1px solid var(--border); }
+    .how__header { margin-bottom: 4rem; }
+    .how__headline {
+      font-family: var(--font-serif);
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      margin-bottom: 0.75rem;
+    }
+    .how__sub { color: var(--muted); font-size: 1rem; }
+
+    .how__cols {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 768px) { .how__cols { grid-template-columns: repeat(3, 1fr); } }
+
+    .how-col {
+      padding: 2.5rem;
+      border: 1px solid var(--border);
+    }
+    @media (min-width: 768px) { .how-col + .how-col { border-left: none; } }
+    .how-col + .how-col { border-top: none; }
+    @media (min-width: 768px) { .how-col + .how-col { border-top: 1px solid var(--border); } }
+
+    .how-col__num {
+      font-family: var(--font-mono);
+      font-size: 2.5rem;
+      font-weight: 500;
+      color: var(--border);
+      display: block;
+      line-height: 1;
+      margin-bottom: 1.25rem;
+    }
+    .how-col__title {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 1rem;
+    }
+    .how-col p { font-size: 0.9rem; color: rgba(240,240,240,0.55); line-height: 1.85; }
+
+    /* ══════════════════════════════════════════════════
+       NOT FOR YOU
+    ══════════════════════════════════════════════════ */
+    .not-for-you {
+      padding: 6rem 0;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+    .not-for-you__inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
+    @media (min-width: 1024px) {
+      .not-for-you__inner { grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+    }
+    .not-for-you__headline {
+      font-family: var(--font-serif);
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      margin-bottom: 1.5rem;
+    }
+    .not-for-you__closing {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--gold);
+      line-height: 1.65;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .not-cards { display: flex; flex-direction: column; gap: 0.75rem; }
+    .not-card {
+      background: rgba(139,26,26,0.07);
+      border: 1px solid rgba(139,26,26,0.22);
+      border-left: 3px solid var(--danger);
+      padding: 1rem 1.25rem;
+      font-size: 0.9rem;
+      color: rgba(240,240,240,0.7);
+      line-height: 1.6;
+    }
+
+    /* ══════════════════════════════════════════════════
+       SIGNUP
+    ══════════════════════════════════════════════════ */
+    .signup { padding: 7rem 0; border-bottom: 1px solid var(--border); }
+    .signup__inner { max-width: 640px; }
+    .signup__headline {
+      font-family: var(--font-serif);
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      margin-bottom: 1.5rem;
+    }
+    .signup__body {
+      color: rgba(240,240,240,0.6);
+      line-height: 1.85;
+      margin-bottom: 2.5rem;
+      font-size: 0.975rem;
+    }
+    .signup__form { display: flex; flex-direction: column; gap: 0.75rem; }
+    @media (min-width: 500px) { .signup__form { flex-direction: row; } }
+
+    .signup__input {
+      flex: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--white);
+      padding: 0.85rem 1.25rem;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      border-radius: 3px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.3s;
+    }
+    .signup__input::placeholder { color: var(--muted); }
+    .signup__input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.12), 0 0 18px rgba(201,168,76,0.08);
+    }
+    .signup__note {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      margin-top: 1rem;
+    }
+    .signup__success {
+      display: none;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--gold);
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+    }
+    .signup__success.is-visible { display: flex; }
+    .signup__check {
+      width: 26px; height: 26px;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.75rem;
+    }
+
+    /* ══════════════════════════════════════════════════
+       FAQ
+    ══════════════════════════════════════════════════ */
+    .faq { padding: 6rem 0; border-bottom: 1px solid var(--border); }
+    .faq__headline {
+      font-family: var(--font-serif);
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      margin-bottom: 3rem;
+    }
+    .faq__list { max-width: 760px; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item__q {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      text-align: left;
+      padding: 1.4rem 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      line-height: 1.5;
+      transition: color 0.2s;
+    }
+    .faq-item__q:hover { color: var(--gold); }
+    .faq-item__icon {
+      font-family: var(--font-mono);
+      font-size: 1.3rem;
+      color: var(--gold);
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+      line-height: 1;
+    }
+    .faq-item.is-open .faq-item__icon { transform: rotate(45deg); }
+    .faq-item__a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .faq-item.is-open .faq-item__a { max-height: 500px; }
+    .faq-item__a p {
+      padding-bottom: 1.5rem;
+      color: var(--muted);
+      font-size: 0.925rem;
+      line-height: 1.8;
+    }
+
+    /* ══════════════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════════════ */
+    .footer { padding: 3rem 0; }
+    .footer__inner {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    @media (min-width: 768px) {
+      .footer__inner { flex-direction: row; align-items: center; justify-content: space-between; }
+    }
+    .footer__brand {}
+    .footer__logo {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      color: var(--gold);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    .footer__tagline {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+    }
+    .footer__links {
+      display: flex; gap: 1.5rem; list-style: none;
+    }
+    .footer__links a {
+      color: var(--muted); text-decoration: none;
+      font-size: 0.85rem; transition: color 0.2s;
+    }
+    .footer__links a:hover { color: var(--gold); }
+    .footer__social a {
+      font-family: var(--font-mono); font-size: 0.78rem;
+      color: var(--muted); text-decoration: none; transition: color 0.2s;
+    }
+    .footer__social a:hover { color: var(--gold); }
+    .footer__bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 1.75rem;
+      display: flex; flex-direction: column; gap: 0.4rem;
+    }
+    .footer__copy, .footer__disclaimer { font-size: 0.75rem; color: var(--muted); }
+  </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav class="nav">
-    <div class="container nav__inner">
-      <a href="/" class="nav__logo">TradingPlan<span>.io</span></a>
-      <!-- <ul class="nav__links">
-        <li><a href="#features">Features</a></li>
-        <li><a href="#how-it-works">How it works</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-      </ul>
-      <a href="#waitlist" class="btn btn--primary nav__cta">Get Early Access</a>
-      <button class="nav__burger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button> -->
+<!-- ══ NAV ══ -->
+<nav class="nav">
+  <div class="container nav__inner">
+    <div class="nav__left">
+      <a href="/" class="nav__logo">TradingPlan</a>
+      <span class="nav__tagline">// Rules, Routine, Psychology</span>
     </div>
-  </nav>
+    <a href="#signup" class="btn btn--gold">Join Beta</a>
+  </div>
+</nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero__inner">
-      <div class="hero__badge">Built for disciplined traders</div>
-      <h1 class="hero__title">Stop Trading on Gut Feelings.<br>Start Trading on a Plan.</h1>
-      <p class="hero__sub">TradingPlan.io helps you define your strategy, set your rules, and hold yourself accountable — so emotion never overrides your edge.</p>
-      <!-- <div class="hero__actions">
-        <a href="#waitlist" class="btn btn--primary btn--lg">Join the Waitlist</a>
-        <a href="#how-it-works" class="btn btn--ghost btn--lg">See how it works</a>
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero__inner gold-rule">
+      <span class="section-label fade-up">// Pre-Launch</span>
+      <h1 class="hero__title fade-up delay-1">
+        The Market Doesn't Fail Traders.<br>
+        <em>Traders Fail Traders.</em>
+      </h1>
+      <p class="hero__sub fade-up delay-2">
+        The internet is full of strategies. Thousands of gurus promise the edge. But the traders who consistently profit share one thing — a written trading plan they actually follow. TradingPlan is the first native app built to help you build yours and live by it every single day.
+      </p>
+      <div class="hero__stats fade-up delay-3">
+        <div class="stat">
+          <span class="stat__value" data-target="90" data-suffix="%">0%</span>
+          <span class="stat__label">of traders fail</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value">1 in 10</span>
+          <span class="stat__label">has a written plan</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value" data-target="100" data-suffix="%">0%</span>
+          <span class="stat__label">of consistently profitable traders follow a structured process</span>
+        </div>
       </div>
-      <div class="hero__social-proof">
-        <span>Join <strong>2,400+</strong> traders already on the waitlist</span>
-      </div> -->
-    </div>
-  </section>
-
-  <!-- FEATURES -->
-  <!-- <section class="features" id="features">
-    <div class="container">
-      <div class="section-header">
-        <h2>Everything you need to trade with discipline</h2>
-        <p>One place to build, track, and review your complete trading plan.</p>
-      </div>
-      <div class="features__grid">
-        <div class="feature-card">
-          <div class="feature-card__icon">📋</div>
-          <h3>Plan Builder</h3>
-          <p>Define your strategy, risk rules, trade criteria, and goals in a structured, guided format.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-card__icon">📊</div>
-          <h3>Trade Journal</h3>
-          <p>Log every trade and automatically check it against your plan rules. Know when you deviated and why.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-card__icon">🎯</div>
-          <h3>Rule Enforcement</h3>
-          <p>Set hard rules for entries, exits, and position sizing. Get reminded before you break them.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-card__icon">📈</div>
-          <h3>Performance Analytics</h3>
-          <p>See your stats split by plan-adherent trades vs. impulsive ones. The data speaks for itself.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-card__icon">🧠</div>
-          <h3>Psychology Tracker</h3>
-          <p>Log your emotional state before and after each session to identify patterns that cost you money.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-card__icon">🔔</div>
-          <h3>Daily Briefing</h3>
-          <p>Start each session with a plan review and pre-trade checklist to get in the right mindset.</p>
-        </div>
+      <div class="hero__cta fade-up delay-4">
+        <a href="#signup" class="btn btn--gold btn--lg">Join the Early Access Beta — Limited Spots</a>
+        <span class="hero__note">No credit card. No commitment. Limited intake — serious traders only.</span>
       </div>
     </div>
-  </section> -->
+  </div>
+</section>
 
-  <!-- HOW IT WORKS -->
-  <!-- <section class="how-it-works" id="how-it-works">
-    <div class="container">
-      <div class="section-header">
-        <h2>How it works</h2>
-        <p>Three simple steps to become a more disciplined trader.</p>
+<!-- ══ PROBLEM ══ -->
+<section class="problem" id="problem">
+  <div class="container">
+    <div class="problem__inner">
+      <div>
+        <span class="section-label fade-up">// The Real Problem</span>
+        <h2 class="problem__headline fade-up delay-1">You Don't Have a<br><span class="gold-underline">Strategy Problem.</span></h2>
+        <p class="problem__body fade-up delay-2">
+          Every trading forum, YouTube channel and paid course will sell you another strategy. Another indicator. Another setup. But walk into any prop firm, speak to any consistently profitable trader, and they'll tell you the same thing — discipline, routine and psychology kill more accounts than bad strategies ever will.
+          <br><br>
+          The hardest part of trading isn't finding an edge. It's following your rules when your emotions are screaming at you not to. It's maintaining your pre-market routine when you're tired. It's having a written plan that keeps you accountable to yourself when nobody else is watching.
+        </p>
       </div>
-      <div class="steps">
-        <div class="step">
-          <div class="step__number">01</div>
-          <h3>Build your plan</h3>
-          <p>Answer guided questions about your strategy, market, timeframe, and risk tolerance. We turn your answers into a structured, actionable trading plan.</p>
+      <div class="problem__cards">
+        <div class="pain-card fade-up">
+          <h3>You trade without a written plan</h3>
+          <p>Most traders carry their rules in their head. That works fine — until a losing streak, a big win, or a volatile open. Then the rules disappear.</p>
         </div>
-        <div class="step__arrow">→</div>
-        <div class="step">
-          <div class="step__number">02</div>
-          <h3>Journal your trades</h3>
-          <p>Log each trade and rate your adherence to the plan. Over time you'll see exactly where discipline breaks down.</p>
+        <div class="pain-card fade-up delay-1">
+          <h3>Your plan exists but you don't follow it</h3>
+          <p>A plan in a Word document you haven't opened in three months isn't a plan. It's a good intention.</p>
         </div>
-        <div class="step__arrow">→</div>
-        <div class="step">
-          <div class="step__number">03</div>
-          <h3>Review and improve</h3>
-          <p>Weekly review sessions help you refine your plan based on real performance data, not emotions.</p>
+        <div class="pain-card fade-up delay-2">
+          <h3>You know what to do. You just don't do it.</h3>
+          <p>This is the hardest truth in trading. The gap between knowing and doing costs traders more than any bad strategy ever could.</p>
         </div>
       </div>
     </div>
-  </section> -->
+  </div>
+</section>
 
-  <!-- PRICING -->
-  <!-- <section class="pricing" id="pricing">
-    <div class="container">
-      <div class="section-header">
-        <h2>Simple pricing</h2>
-        <p>No tricks. One plan, everything included.</p>
+<!-- ══ SOLUTION ══ -->
+<section class="solution" id="solution">
+  <div class="container">
+    <div class="solution__intro">
+      <span class="section-label fade-up">// The Solution</span>
+      <h2 class="solution__headline fade-up delay-1">Build Your Plan.<br>Follow Your Plan.<br>Become Consistent.</h2>
+      <p class="solution__body fade-up delay-2">TradingPlan is a native Apple app — built for iPhone, iPad and Mac — that guides you through building a complete, professional trading plan and then puts it to work every single trading day.</p>
+    </div>
+    <div class="features__grid">
+      <div class="feature-card fade-up">
+        <div class="feature-card__gem"></div>
+        <h3>Your Trading Why</h3>
+        <p>Consistency starts with purpose. TradingPlan begins where every great trading journey does — understanding why you trade and what you're building toward. When the hard days come, this is what keeps you disciplined.</p>
       </div>
-      <div class="pricing__cards">
-        <div class="pricing-card pricing-card--free">
-          <div class="pricing-card__label">Free</div>
-          <div class="pricing-card__price">$0 <span>/ month</span></div>
-          <ul class="pricing-card__features">
-            <li>1 trading plan</li>
-            <li>Trade journal (50 trades/mo)</li>
-            <li>Basic analytics</li>
-          </ul>
-          <a href="#waitlist" class="btn btn--ghost">Get started free</a>
-        </div>
-        <div class="pricing-card pricing-card--pro">
-          <div class="pricing-card__badge">Most popular</div>
-          <div class="pricing-card__label">Pro</div>
-          <div class="pricing-card__price">$12 <span>/ month</span></div>
-          <ul class="pricing-card__features">
-            <li>Unlimited trading plans</li>
-            <li>Unlimited trade journal</li>
-            <li>Full analytics &amp; insights</li>
-            <li>Psychology tracker</li>
-            <li>Daily briefing</li>
-            <li>Priority support</li>
-          </ul>
-          <a href="#waitlist" class="btn btn--primary">Join the waitlist</a>
-        </div>
+      <div class="feature-card fade-up delay-1">
+        <div class="feature-card__gem"></div>
+        <h3>Pre-Market Checklist</h3>
+        <p>The foundation of daily consistency. Build your own pre-market routine and check it off every morning before you place a single trade. Never start a session unprepared again.</p>
+      </div>
+      <div class="feature-card fade-up delay-2">
+        <div class="feature-card__gem"></div>
+        <h3>Trading Philosophy Builder</h3>
+        <p>What kind of trader are you? What do you value? What's your edge? TradingPlan walks you through defining your identity as a trader — so your decisions have a foundation.</p>
+      </div>
+      <div class="feature-card fade-up delay-3">
+        <div class="feature-card__gem"></div>
+        <h3>Psychology Framework</h3>
+        <p>Fear, greed, revenge trading, overtrading — TradingPlan helps you identify your personal psychological triggers and build specific rules to address them before they cost you money.</p>
+      </div>
+      <div class="feature-card fade-up delay-4">
+        <div class="feature-card__gem"></div>
+        <h3>Rules of Engagement</h3>
+        <p>Your strategy rules, analysis criteria and trade execution rules — all structured, all in one place, all one tap away when you need to check yourself.</p>
+      </div>
+      <div class="feature-card fade-up delay-5">
+        <div class="feature-card__gem"></div>
+        <h3>Risk &amp; Money Management</h3>
+        <p>The section most traders skip. TradingPlan makes risk management a non-negotiable part of your plan — with clear rules for position sizing, drawdown limits and daily loss caps.</p>
       </div>
     </div>
-  </section> -->
+  </div>
+</section>
 
-  <!-- WAITLIST -->
-  <section class="waitlist" id="waitlist">
-    <div class="container waitlist__inner">
-      <h2>Be first when we launch</h2>
-      <p>Join the waitlist and be the first to here about the launch.</p>
-      <form class="waitlist__form" id="waitlistForm">
-        <input type="email" placeholder="Enter your email" required class="waitlist__input" />
-        <button type="submit" class="btn btn--primary btn--lg">Join Waitlist</button>
-      </form>
-      <p class="waitlist__note">No spam. Unsubscribe anytime.</p>
+<!-- ══ HOW IT WORKS ══ -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="how__header">
+      <span class="section-label fade-up">// How It Works</span>
+      <h2 class="how__headline fade-up delay-1">Three Modes. One System.</h2>
+      <p class="how__sub fade-up delay-2">Everything you need to trade with structure, every single day.</p>
     </div>
-  </section>
+    <div class="how__cols fade-up delay-3">
+      <div class="how-col">
+        <span class="how-col__num">01</span>
+        <div class="how-col__title">Build</div>
+        <p>Work through guided sections to create your complete trading plan. Each section prompts the right questions. You provide the answers. The result is a professional, personalised plan that reflects how you actually trade.</p>
+      </div>
+      <div class="how-col">
+        <span class="how-col__num">02</span>
+        <div class="how-col__title">Operate</div>
+        <p>Every trading day, TradingPlan surfaces what you need — your pre-market checklist, your rules, your risk parameters. Your plan isn't a document anymore. It's your daily operating system.</p>
+      </div>
+      <div class="how-col">
+        <span class="how-col__num">03</span>
+        <div class="how-col__title">Review</div>
+        <p>Weekly review tools help you identify patterns in your discipline — not just your P&amp;L. Are you following your rules? Where are you drifting? TradingPlan shows you the truth.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer__inner">
-      <a href="/" class="nav__logo">TradingPlan<span>.io</span></a>
-      <p class="footer__copy">&copy; 2026 TradingPlan.io. All rights reserved.</p>
+<!-- ══ NOT FOR YOU ══ -->
+<section class="not-for-you">
+  <div class="container">
+    <div class="not-for-you__inner">
+      <div>
+        <span class="section-label fade-up">// Not For Everyone</span>
+        <h2 class="not-for-you__headline fade-up delay-1">This Is Not For You If&hellip;</h2>
+        <p class="not-for-you__closing fade-up delay-2">
+          "TradingPlan is built for traders who already know the answer is inside their own process — and are ready to build it properly."
+        </p>
+      </div>
+      <div class="not-cards">
+        <div class="not-card fade-up">You're looking for signals, tips or someone else's strategy to copy</div>
+        <div class="not-card fade-up delay-1">You want a get-rich-quick shortcut to profitable trading</div>
+        <div class="not-card fade-up delay-2">You're not willing to do the work of building and following your own process</div>
+        <div class="not-card fade-up delay-3">You believe another indicator or setup is what's missing from your trading</div>
+        <div class="not-card fade-up delay-4">You're not serious about treating trading as a professional discipline</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SIGNUP ══ -->
+<section class="signup" id="signup">
+  <div class="container">
+    <div class="signup__inner gold-rule">
+      <span class="section-label fade-up">// Early Access</span>
+      <h2 class="signup__headline fade-up delay-1">Join the Beta.<br>Limited Intake.</h2>
+      <p class="signup__body fade-up delay-2">
+        We're opening TradingPlan to a small group of serious traders before public launch. Beta members get free early access, direct input into the product roadmap, and founding member pricing when we launch.
+        <br><br>
+        This isn't a waiting list. It's a selective intake. We want traders who are genuinely committed to building and following a structured trading plan.
+      </p>
+      <div class="fade-up delay-3">
+        <!-- TODO: Replace with your email provider endpoint (Mailchimp, ConvertKit, etc.) if needed -->
+        <form class="signup__form" id="signupForm">
+          <input type="email" class="signup__input" id="signupEmail" placeholder="Your email address" required />
+          <button type="submit" class="btn btn--gold btn--lg" id="signupBtn">Request Early Access</button>
+        </form>
+        <div class="signup__success" id="signupSuccess">
+          <div class="signup__check">&#10003;</div>
+          <span>You're on the list. We'll be in touch.</span>
+        </div>
+        <p class="signup__note">Limited spots. No spam. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <span class="section-label fade-up">// FAQ</span>
+    <h2 class="faq__headline fade-up delay-1">Common Questions</h2>
+    <div class="faq__list fade-up delay-2"></div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">TradingPlan</a>
+        <span class="footer__tagline">// Rules, Routine, Psychology</span>
+      </div>
       <ul class="footer__links">
-        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Privacy Policy</a></li>
         <li><a href="#">Terms</a></li>
-        <li><a href="#">Contact</a></li>
       </ul>
+      <div class="footer__social">
+        <a href="https://instagram.com/tradingplan" target="_blank" rel="noopener">@tradingplan ↗</a>
+      </div>
     </div>
-  </footer>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2025 TradingPlan. Built for traders who are serious about consistency.</p>
+      <p class="footer__disclaimer">TradingPlan is not a financial advisor. Nothing in this app constitutes financial advice.</p>
+    </div>
+  </div>
+</footer>
 
-  <script src="js/main.js"></script>
+<script>
+  /* ── FAQ DATA ── */
+  const faqs = [
+    {
+      q: "What platforms will TradingPlan be available on?",
+      a: "TradingPlan is a native Apple app built for iPhone, iPad and Mac. All three are included in a single subscription. Your plan syncs seamlessly across all your devices via iCloud."
+    },
+    {
+      q: "I already have a trading plan in a spreadsheet/Word doc. Why do I need this?",
+      a: "A static document is better than nothing — but it's not a system. TradingPlan turns your plan into a living daily operating tool. Your checklist, your rules, your risk parameters are one tap away when you need them. And your plan evolves with you."
+    },
+    {
+      q: "Is this for beginners or experienced traders?",
+      a: "Both — but differently. Experienced traders will use it to formalise and systematise what they already know. Newer traders will use it to build the foundation of good habits from the start. What TradingPlan is not is a trading education platform or strategy provider."
+    },
+    {
+      q: "When does TradingPlan launch?",
+      a: "We're targeting launch in the coming months. Beta members will get access first and will be notified directly before public launch."
+    },
+    {
+      q: "How much will it cost?",
+      a: "Pricing hasn't been finalised. Beta members will receive founding member pricing — significantly below the standard subscription rate. We'll share details with the beta group before launch."
+    },
+    {
+      q: "What markets does TradingPlan support?",
+      a: "TradingPlan is market-agnostic. Whether you trade stocks, forex, futures, crypto or options — the principles of a structured trading plan apply universally. You build your plan around your market and your approach."
+    },
+    {
+      q: "Is my data private?",
+      a: "Yes. Your trading plan is stored privately on your device and synced via your personal iCloud account. We never see your trading plan data."
+    },
+    {
+      q: "What if I join the beta and it's not right for me?",
+      a: "No problem. The beta is free. No payment details required. If it's not the right fit, there's no obligation of any kind."
+    }
+  ];
+
+  /* ── RENDER FAQ ── */
+  const faqList = document.querySelector('.faq__list');
+  faqs.forEach(({ q, a }) => {
+    const item = document.createElement('div');
+    item.className = 'faq-item';
+    item.innerHTML = `
+      <button class="faq-item__q">
+        <span>${q}</span>
+        <span class="faq-item__icon">+</span>
+      </button>
+      <div class="faq-item__a"><p>${a}</p></div>
+    `;
+    item.querySelector('.faq-item__q').addEventListener('click', () => {
+      const isOpen = item.classList.toggle('is-open');
+      document.querySelectorAll('.faq-item').forEach(el => {
+        if (el !== item) el.classList.remove('is-open');
+      });
+    });
+    faqList.appendChild(item);
+  });
+
+  /* ── SCROLL ANIMATIONS ── */
+  const animObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        animObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up, .gold-underline').forEach(el => animObserver.observe(el));
+
+  /* ── ANIMATED COUNTERS ── */
+  function runCounter(el) {
+    const target = parseInt(el.dataset.target, 10);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1400;
+    const steps = duration / 16;
+    const inc = target / steps;
+    let current = 0;
+    const timer = setInterval(() => {
+      current = Math.min(current + inc, target);
+      el.textContent = Math.round(current) + suffix;
+      if (current >= target) clearInterval(timer);
+    }, 16);
+  }
+
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        runCounter(entry.target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.stat__value[data-target]').forEach(el => counterObserver.observe(el));
+
+  /* ── EMAIL FORM ── */
+  const signupForm = document.getElementById('signupForm');
+  const signupBtn  = document.getElementById('signupBtn');
+  const signupSuccess = document.getElementById('signupSuccess');
+
+  if (signupForm) {
+    signupForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('signupEmail').value.trim();
+      if (!email) return;
+
+      signupBtn.disabled = true;
+      signupBtn.textContent = 'Submitting…';
+
+      try {
+        await fetch('/save_email.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+      } catch (_) { /* fail silently — show success regardless */ }
+
+      signupForm.style.display = 'none';
+      signupSuccess.classList.add('is-visible');
+    });
+  }
+
+  /* ── SMOOTH SCROLL ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+</script>
 </body>
 </html>
