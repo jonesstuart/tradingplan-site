@@ -85,7 +85,7 @@ img {
 .btn--primary:hover {
   background: var(--color-primary-dark);
   transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(34, 197, 94, 0.3);
+  box-shadow: 0 4px 16px rgba(166, 206, 255, 0.3);
 }
 
 .btn--ghost {
@@ -187,7 +187,7 @@ img {
   transform: translateX(-50%);
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(34, 197, 94, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(166, 206, 255, 0.08) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -195,7 +195,7 @@ img {
   display: inline-block;
   padding: 6px 14px;
   background: var(--color-primary-glow);
-  border: 1px solid rgba(34, 197, 94, 0.3);
+  border: 1px solid rgba(166, 206, 255, 0.3);
   border-radius: 100px;
   font-size: 0.8rem;
   font-weight: 600;
@@ -278,7 +278,7 @@ img {
   transition: border-color 0.2s, transform 0.2s;
 }
 .feature-card:hover {
-  border-color: rgba(34, 197, 94, 0.3);
+  border-color: rgba(166, 206, 255, 0.3);
   transform: translateY(-2px);
 }
 
@@ -376,7 +376,7 @@ img {
 
 .pricing-card--pro {
   border-color: var(--color-primary);
-  background: linear-gradient(160deg, var(--color-surface) 0%, rgba(34,197,94,0.05) 100%);
+  background: linear-gradient(160deg, var(--color-surface) 0%, rgba(166,206,255,0.05) 100%);
 }
 
 .pricing-card__badge {
@@ -529,11 +529,246 @@ img {
 }
 
 /* =========================================
+   HERO EXTRAS
+   ========================================= */
+.hero__note {
+  font-size: 0.8rem;
+  color: var(--color-text-dim);
+  margin-top: 12px;
+}
+
+.hero__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin-top: 48px;
+  background: var(--color-border);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.stat {
+  background: var(--color-surface);
+  padding: 24px 20px;
+  text-align: center;
+}
+
+.stat__value {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: -1px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat__label {
+  font-size: 0.78rem;
+  color: var(--color-text-dim);
+  line-height: 1.4;
+}
+
+/* =========================================
+   SECTION BLOCK
+   ========================================= */
+.section-block {
+  padding: 96px 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.section-block--surface {
+  background: var(--color-surface);
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+}
+
+/* =========================================
+   PAIN CARDS
+   ========================================= */
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.pain-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-primary);
+  border-radius: var(--radius);
+  padding: 28px;
+}
+
+.pain-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.pain-card p {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* =========================================
+   FEATURE CARD ICON (text override)
+   ========================================= */
+.feature-card__icon {
+  font-size: 1rem;
+  color: var(--color-primary);
+  margin-bottom: 14px;
+}
+
+/* =========================================
+   NOT FOR YOU
+   ========================================= */
+.not-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  max-width: 720px;
+  margin: 0 auto 32px;
+}
+
+.not-card {
+  background: rgba(139, 26, 26, 0.08);
+  border: 1px solid rgba(139, 26, 26, 0.25);
+  border-left: 3px solid #8b1a1a;
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.not-closing {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  line-height: 1.6;
+}
+
+/* =========================================
+   WAITLIST SUCCESS STATE
+   ========================================= */
+.waitlist__success {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-primary);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.waitlist__success.is-visible { display: flex; }
+
+.waitlist__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* =========================================
+   FAQ
+   ========================================= */
+.faq__list {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.faq-item__q {
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--color-text);
+  font-family: var(--font);
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+  padding: 20px 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  transition: color 0.15s;
+  line-height: 1.4;
+}
+.faq-item__q:hover { color: var(--color-primary); }
+
+.faq-item__icon {
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  font-weight: 400;
+}
+.faq-item.is-open .faq-item__icon { transform: rotate(45deg); }
+
+.faq-item__a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.faq-item.is-open .faq-item__a { max-height: 400px; }
+
+.faq-item__a p {
+  padding-bottom: 20px;
+  font-size: 0.925rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+}
+
+/* =========================================
+   FOOTER EXTRAS
+   ========================================= */
+.footer__disclaimer {
+  font-size: 0.75rem;
+  color: var(--color-text-dim);
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+}
+
+/* =========================================
    RESPONSIVE
    ========================================= */
 @media (max-width: 900px) {
   .features__grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pain-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__stats {
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 
   .steps {
