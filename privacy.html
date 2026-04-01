@@ -4,11 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy — TradingPlan</title>
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YSX1N3B838"></script>
+  <!-- Google Analytics (Consent Mode v2) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', { analytics_storage: 'denied', wait_for_update: 2000 });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YSX1N3B838"></script>
+  <script>
     gtag('js', new Date());
     gtag('config', 'G-YSX1N3B838');
   </script>
@@ -100,9 +103,24 @@
 
     <p>If you contact us for support, you may share personally identifiable information (such as your email address and device information) in the process. We retain support communications in order to improve our service. We will not use this information for any other purpose.</p>
 
+    <h2>Cookies</h2>
+
+    <p>We use cookies solely for website analytics. No cookies are set until you give consent via the banner on our website. You can accept or decline at any time.</p>
+
+    <p>The cookies we use are:</p>
+
+    <ul>
+      <li><strong>_ga</strong> — Google Analytics. Used to distinguish users. Expires after 2 years.</li>
+      <li><strong>_ga_*</strong> — Google Analytics. Used to persist session state. Expires after 2 years.</li>
+    </ul>
+
+    <p>We do not use advertising cookies, tracking pixels, or any third-party marketing cookies. If you decline cookies, the site will continue to function normally and no analytics cookies will be set.</p>
+
+    <p>You can also manage or delete cookies at any time through your browser settings.</p>
+
     <h2>Analytics</h2>
 
-    <p>We may use privacy-focused website analytics tools to understand how visitors use our website. Any analytics we use are configured to not collect personally identifiable information.</p>
+    <p>If you accept cookies, we use Google Analytics to understand how visitors use our website. This data is anonymised and used only to improve the site. We do not share this data with any third parties for marketing purposes.</p>
 
     <h2>Data Retention</h2>
 
@@ -151,5 +169,6 @@
     </div>
   </footer>
 
+  <script src="js/cookies.js"></script>
 </body>
 </html>
