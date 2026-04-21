@@ -22,35 +22,81 @@
   <meta property="og:image" content="https://tradingplan.io/img/og.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="TradingPlan — strategy rules, risk framework and trading routines for iPhone, iPad and Mac" />
   <meta property="og:locale" content="en_GB" />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="TradingPlan — Your Trading Plan. Your Rules. Actually Followed." />
-  <meta name="twitter:description" content="Strategy rules, risk framework, and pre-market routines — then walk through them in real time, every session. Free on the App Store." />
-  <meta name="twitter:image" content="https://tradingplan.io/img/og.jpg" />
+  <!-- JSON-LD: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://tradingplan.io/#organization",
+    "name": "TradingPlan Ltd.",
+    "url": "https://tradingplan.io",
+    "logo": "https://tradingplan.io/img/logo160.png",
+    "email": "hello@tradingplan.io",
+    "sameAs": ["https://www.instagram.com/tradingplan.io/"]
+  }
+  </script>
+
+  <!-- JSON-LD: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://tradingplan.io/#website",
+    "url": "https://tradingplan.io",
+    "name": "TradingPlan",
+    "publisher": { "@id": "https://tradingplan.io/#organization" },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://tradingplan.io/help/?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
 
   <!-- JSON-LD: Software Application -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
+    "@id": "https://tradingplan.io/#app",
     "name": "TradingPlan",
     "applicationCategory": "FinanceApplication",
-    "operatingSystem": "iOS, iPadOS, macOS",
+    "applicationSubCategory": "Personal Finance",
+    "operatingSystem": "iOS 16+, iPadOS 16+, macOS 13+",
     "description": "TradingPlan is a native Apple app for serious traders. Build your strategy rules, risk framework, and trading routines — then walk through them in real time, every session.",
+    "url": "https://apps.apple.com/app/id6761687862",
+    "datePublished": "2026-01-01",
+    "featureList": [
+      "Strategy Builder with six rule sections",
+      "Strategy Flow — real-time trade checklist",
+      "Trading Routine Builder",
+      "Routine Flow — pre-market and post-session checklists",
+      "Complete Risk Management Framework",
+      "iCloud sync across iPhone, iPad and Mac",
+      "Trade Plan Builder — philosophy, mindset, risk, notes",
+      "Flow Session History",
+      "PDF Export"
+    ],
+    "screenshot": [
+      "https://tradingplan.io/img/ss-strategy-flow.png",
+      "https://tradingplan.io/img/ss-strategy-builder.png",
+      "https://tradingplan.io/img/ss-routine-flow.png",
+      "https://tradingplan.io/img/ss-risk.png",
+      "https://tradingplan.io/img/ss-ipad-dashboard.png"
+    ],
     "offers": {
       "@type": "Offer",
       "price": "0",
       "priceCurrency": "USD",
       "availability": "https://schema.org/InStock"
     },
-    "publisher": {
-      "@type": "Organization",
-      "name": "TradingPlan Ltd.",
-      "url": "https://tradingplan.io",
-      "email": "hello@tradingplan.io"
-    }
+    "publisher": { "@id": "https://tradingplan.io/#organization" }
   }
   </script>
 
@@ -148,6 +194,15 @@
     gtag('config', 'G-YSX1N3B838');
   </script>
 
+  <!-- Preload LCP image -->
+  <link rel="preload" as="image" href="img/ss-strategy-flow.webp" type="image/webp" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
+  <link rel="shortcut icon" href="favicon.ico" />
+
   <link rel="stylesheet" href="css/main.css?v=3" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -159,7 +214,7 @@
   <nav class="nav">
     <div class="container nav__inner">
       <a href="/" class="nav__logo">
-        <img src="img/logo160.png" alt="TradingPlan" class="nav__logo-img" />TradingPlan<span>.io</span>
+        <img src="img/logo160.png" alt="TradingPlan" class="nav__logo-img" width="160" height="160" />TradingPlan<span>.io</span>
       </a>
       <ul class="nav__links">
         <li><a href="#features">Features</a></li>
@@ -191,7 +246,10 @@
 
       <div class="hero__visual" aria-hidden="true">
         <div class="phone-frame">
-          <img src="img/ss-strategy-flow.png" alt="Strategy Flow checklist in progress" class="phone-frame-img" />
+          <picture>
+            <source type="image/webp" srcset="img/ss-strategy-flow.webp" />
+            <img src="img/ss-strategy-flow.png" alt="Strategy Flow checklist in progress" class="phone-frame-img" width="750" height="1630" />
+          </picture>
         </div>
       </div>
 
@@ -267,7 +325,10 @@
 
         <div class="feature-showcase-card">
           <div class="feature-screenshot">
-            <img src="img/ss-strategy-builder.png" alt="Strategy Builder — rule sections and tabs" class="feature-img" />
+            <picture>
+              <source type="image/webp" srcset="img/ss-strategy-builder.webp" />
+              <img src="img/ss-strategy-builder.png" alt="Strategy Builder — rule sections and tabs" class="feature-img" width="750" height="1630" loading="lazy" />
+            </picture>
           </div>
           <div class="feature-showcase-card__text">
             <h3>Strategy Builder</h3>
@@ -277,7 +338,10 @@
 
         <div class="feature-showcase-card feature-showcase-card--accent">
           <div class="feature-screenshot feature-screenshot--accent">
-            <img src="img/ss-strategy-flow.png" alt="Strategy Flow — live rule checklist in progress" class="feature-img" />
+            <picture>
+              <source type="image/webp" srcset="img/ss-strategy-flow.webp" />
+              <img src="img/ss-strategy-flow.png" alt="Strategy Flow — live rule checklist in progress" class="feature-img" width="750" height="1630" loading="lazy" />
+            </picture>
           </div>
           <div class="feature-showcase-card__text">
             <h3>Strategy Flow</h3>
@@ -288,7 +352,10 @@
 
         <div class="feature-showcase-card">
           <div class="feature-screenshot">
-            <img src="img/ss-routine-flow.png" alt="Trading Routine Flow — pre-market checklist in progress" class="feature-img" />
+            <picture>
+              <source type="image/webp" srcset="img/ss-routine-flow.webp" />
+              <img src="img/ss-routine-flow.png" alt="Trading Routine Flow — pre-market checklist in progress" class="feature-img" width="750" height="1630" loading="lazy" />
+            </picture>
           </div>
           <div class="feature-showcase-card__text">
             <h3>Trading Routines</h3>
@@ -298,7 +365,10 @@
 
         <div class="feature-showcase-card">
           <div class="feature-screenshot">
-            <img src="img/ss-risk.png" alt="Risk Framework — PRO-gated risk categories" class="feature-img" />
+            <picture>
+              <source type="image/webp" srcset="img/ss-risk.webp" />
+              <img src="img/ss-risk.png" alt="Risk Framework — PRO-gated risk categories" class="feature-img" width="750" height="1630" loading="lazy" />
+            </picture>
           </div>
           <div class="feature-showcase-card__text">
             <h3>Complete Risk Framework</h3>
@@ -309,7 +379,10 @@
 
         <div class="feature-showcase-card">
           <div class="feature-screenshot">
-            <img src="img/ss-mac-tradingplandocumentview.png" alt="Full Trading Plan document view on Mac" class="feature-img feature-img--mid" />
+            <picture>
+              <source type="image/webp" srcset="img/ss-mac-tradingplandocumentview.webp" />
+              <img src="img/ss-mac-tradingplandocumentview.png" alt="Full Trading Plan document view on Mac" class="feature-img feature-img--mid" width="1200" height="743" loading="lazy" />
+            </picture>
           </div>
           <div class="feature-showcase-card__text">
             <h3>Your Full Trading Plan</h3>
@@ -320,7 +393,10 @@
 
         <div class="feature-showcase-card">
           <div class="feature-screenshot">
-            <img src="img/ss-ipad-dashboard.png" alt="TradingPlan dashboard on iPad with sidebar navigation" class="feature-img feature-img--mid" />
+            <picture>
+              <source type="image/webp" srcset="img/ss-ipad-dashboard.webp" />
+              <img src="img/ss-ipad-dashboard.png" alt="TradingPlan dashboard on iPad with sidebar navigation" class="feature-img feature-img--mid" width="1400" height="1050" loading="lazy" />
+            </picture>
           </div>
           <div class="feature-showcase-card__text">
             <h3>Works Everywhere</h3>
@@ -520,7 +596,18 @@
         <p class="section-label">FAQ</p>
         <h2>Common Questions</h2>
       </div>
-      <div class="faq__list" id="faqList"></div>
+      <div class="faq__list" id="faqList">
+        <!-- Pre-rendered for crawlers; JS enhances with accordion behaviour -->
+        <div class="faq-item"><button class="faq-item__q"><span>Is TradingPlan free?</span><span class="faq-item__icon">+</span></button><div class="faq-item__a"><p>Yes — TradingPlan is free to download and includes a genuinely useful set of features: one full strategy with Strategy Flow, one routine with Routine Flow, the complete trade plan builder, and iCloud sync. PRO unlocks unlimited strategies, unlimited routines, the <a href="help/articles/advanced-risk-features.html">advanced risk framework</a>, flow session history, and PDF export.</p></div></div>
+        <div class="faq-item"><button class="faq-item__q"><span>What platforms does TradingPlan run on?</span><span class="faq-item__icon">+</span></button><div class="faq-item__a"><p>TradingPlan is a native Apple app that runs on iPhone, iPad, and Mac. All three are included in a single download — nothing extra to buy. Your plan syncs automatically across all your devices via iCloud. See <a href="help/articles/multiple-devices.html">Using TradingPlan on Multiple Devices</a>.</p></div></div>
+        <div class="faq-item"><button class="faq-item__q"><span>What is Strategy Flow?</span><span class="faq-item__icon">+</span></button><div class="faq-item__a"><p>Strategy Flow is TradingPlan's core feature. Once you've built your strategy rules across six sections — directional bias, analysis, entry, stop loss, target, and trade management — you launch a Flow before any trade. The app walks you through every rule step by step, tracking which ones pass and which don't. It turns your written rules into a live execution checklist. See <a href="help/articles/running-a-strategy-flow.html">Running a Strategy Flow</a>.</p></div></div>
+        <div class="faq-item"><button class="faq-item__q"><span>I already have a trading plan in a spreadsheet. Why do I need this?</span><span class="faq-item__icon">+</span></button><div class="faq-item__a"><p>A static document is better than nothing — but it's not a system. TradingPlan turns your plan into a daily operating tool. Your strategy rules, risk parameters, and routines are one tap away when it matters. The Strategy Flow makes it impossible to skip steps. And your plan evolves as you do.</p></div></div>
+        <div class="faq-item"><button class="faq-item__q"><span>Is TradingPlan for beginners or experienced traders?</span><span class="faq-item__icon">+</span></button><div class="faq-item__a"><p>Both — but differently. Experienced traders use it to formalise and systematise what they already know. Newer traders use it to build the foundation of good habits from the start. TradingPlan is not a trading education platform or strategy provider — it's a discipline and execution tool.</p></div></div>
+        <div class="faq-item"><button class="faq-item__q"><span>What markets does TradingPlan support?</span><span class="faq-item__icon">+</span></button><div class="faq-item__a"><p>TradingPlan is market-agnostic. Whether you trade stocks, forex, futures, crypto, or options — the principles of a structured trading plan apply universally. You build your strategy around your market and your approach.</p></div></div>
+        <div class="faq-item"><button class="faq-item__q"><span>Is my data private?</span><span class="faq-item__icon">+</span></button><div class="faq-item__a"><p>Yes. Your trading plan is stored on your device and synced via your personal iCloud account. We never have access to your trading plan data. See <a href="help/articles/icloud-sync.html">iCloud Sync Explained</a>.</p></div></div>
+        <div class="faq-item"><button class="faq-item__q"><span>What is the Lifetime plan?</span><span class="faq-item__icon">+</span></button><div class="faq-item__a"><p>The Lifetime plan is a one-time purchase that gives you permanent PRO access — no renewals, ever. It includes all future PRO features at no additional charge. All billing is handled securely by Apple.</p></div></div>
+        <div class="faq-item"><button class="faq-item__q"><span>Can I try PRO before buying?</span><span class="faq-item__icon">+</span></button><div class="faq-item__a"><p>The Annual plan includes a free trial for eligible new subscribers, subject to App Store eligibility. The free tier is genuinely useful — for a single-strategy trader, it's a complete tool with no artificial limits on the features it includes. See <a href="help/articles/free-vs-pro.html">Free Plan vs Pro</a>.</p></div></div>
+      </div>
       <div class="faq__contact">
         <p>Still have questions?</p>
         <a href="mailto:hello@tradingplan.io" class="btn btn--ghost">Email hello@tradingplan.io</a>
@@ -535,7 +622,7 @@
     <div class="container footer__inner">
       <div class="footer__brand">
         <a href="/" class="nav__logo">
-          <img src="img/logo160.png" alt="TradingPlan" class="nav__logo-img" />TradingPlan<span>.io</span>
+          <img src="img/logo160.png" alt="TradingPlan" class="nav__logo-img" width="160" height="160" />TradingPlan<span>.io</span>
         </a>
         <p class="footer__copy">&copy; 2026 TradingPlan. Built for traders who are serious about consistency.</p>
         <p class="footer__disclaimer">TradingPlan is not a financial advisor. Nothing in this app constitutes financial or investment advice.</p>

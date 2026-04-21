@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /save_email.php
 
 Sitemap: https://tradingplan.io/sitemap.xml

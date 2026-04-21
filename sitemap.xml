@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Main site -->
   <url>
     <loc>https://tradingplan.io/</loc>
     <changefreq>weekly</changefreq>
@@ -15,4 +17,66 @@
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
+
+  <!-- Help Centre -->
+  <url>
+    <loc>https://tradingplan.io/help/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Getting Started -->
+  <url><loc>https://tradingplan.io/help/articles/welcome-and-overview.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tradingplan.io/help/articles/setting-up-your-plan.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tradingplan.io/help/articles/navigating-the-app.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Strategies -->
+  <url><loc>https://tradingplan.io/help/articles/creating-your-first-strategy.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tradingplan.io/help/articles/understanding-strategy-rules.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tradingplan.io/help/articles/running-a-strategy-flow.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tradingplan.io/help/articles/including-strategies-in-your-plan.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Trade Plan -->
+  <url><loc>https://tradingplan.io/help/articles/trade-plan-overview.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tradingplan.io/help/articles/your-trading-philosophy.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tradingplan.io/help/articles/trader-mindset.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tradingplan.io/help/articles/your-why.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tradingplan.io/help/articles/business-notes.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Risk Management -->
+  <url><loc>https://tradingplan.io/help/articles/risk-management-overview.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tradingplan.io/help/articles/position-sizing.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tradingplan.io/help/articles/advanced-risk-features.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Routines -->
+  <url><loc>https://tradingplan.io/help/articles/creating-a-routine.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tradingplan.io/help/articles/running-your-routine-flow.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tradingplan.io/help/articles/routine-templates.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Account & Subscription -->
+  <url><loc>https://tradingplan.io/help/articles/free-vs-pro.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tradingplan.io/help/articles/upgrading-to-pro.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tradingplan.io/help/articles/managing-your-subscription.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tradingplan.io/help/articles/sign-in-with-apple.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Data & Sync -->
+  <url><loc>https://tradingplan.io/help/articles/icloud-sync.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tradingplan.io/help/articles/multiple-devices.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Troubleshooting -->
+  <url><loc>https://tradingplan.io/help/articles/101-empty-account-no-data-after-install.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tradingplan.io/help/articles/data-not-syncing.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tradingplan.io/help/articles/cant-sign-in.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tradingplan.io/help/articles/missing-data.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tradingplan.io/help/articles/subscription-not-activating.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tradingplan.io/help/articles/biometric-lock-issues.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tradingplan.io/help/articles/app-crashes.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tradingplan.io/help/articles/strategy-flow-not-working.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Tips & Features -->
+  <url><loc>https://tradingplan.io/help/articles/customising-the-dashboard.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tradingplan.io/help/articles/achievements.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://tradingplan.io/help/articles/notifications.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://tradingplan.io/help/articles/using-on-mac.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
 </urlset>
