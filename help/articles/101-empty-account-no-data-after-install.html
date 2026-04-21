@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Empty Account / No Data After Install or Sign-In — TradingPlan Help</title>
+  <meta name="description" content="If your TradingPlan data appears missing after install or sign-in, your data is almost certainly safe. Follow these steps to resolve the issue." />
+
+  <!-- Google Analytics (Consent Mode v2) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', { analytics_storage: 'denied', wait_for_update: 2000 });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YSX1N3B838"></script>
+  <script>
+    gtag('js', new Date());
+    gtag('config', 'G-YSX1N3B838');
+  </script>
+
+  <link rel="stylesheet" href="../../css/main.css?v=2" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    .article-wrap { max-width: 720px; padding: 56px 0 120px; }
+
+    .article-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      margin-bottom: 40px;
+      transition: color 0.15s;
+    }
+    .article-back:hover { color: var(--color-primary); }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .article-id {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--color-primary);
+      background: rgba(166,206,255,0.1);
+      border: 1px solid rgba(166,206,255,0.2);
+      padding: 3px 10px;
+      border-radius: 100px;
+    }
+    .article-date { font-size: 0.8rem; color: var(--color-text-dim); }
+
+    .article-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 32px;
+      line-height: 1.2;
+    }
+
+    .article-body h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 40px 0 10px;
+      color: var(--color-text);
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .article-body h2 .step-num {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--color-primary);
+      background: rgba(166,206,255,0.1);
+      border: 1px solid rgba(166,206,255,0.2);
+      padding: 2px 8px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .article-body p {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+    .article-body ul, .article-body ol {
+      padding-left: 20px;
+      margin-bottom: 16px;
+    }
+    .article-body li {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      line-height: 1.8;
+      margin-bottom: 6px;
+    }
+    .article-body strong { color: var(--color-text); font-weight: 600; }
+    .article-body a { color: var(--color-primary); text-decoration: none; }
+    .article-body a:hover { text-decoration: underline; }
+
+    .callout {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-left: 3px solid var(--color-primary);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin: 20px 0;
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+    .callout strong { color: var(--color-text); }
+
+    .platform-block {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 20px 24px;
+      margin: 16px 0;
+    }
+    .platform-block__label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--color-text-dim);
+      margin-bottom: 10px;
+    }
+    .platform-block ol, .platform-block ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .platform-block li {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      margin-bottom: 4px;
+      line-height: 1.7;
+    }
+
+    .contact-box {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-top: 48px;
+    }
+    .contact-box h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .contact-box p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      margin-bottom: 12px;
+      line-height: 1.7;
+    }
+    .contact-box ul {
+      padding-left: 18px;
+      margin-bottom: 20px;
+    }
+    .contact-box li {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      margin-bottom: 4px;
+      line-height: 1.7;
+    }
+
+    .article-divider {
+      border: none;
+      border-top: 1px solid var(--color-border);
+      margin: 48px 0 32px;
+    }
+    .article-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .article-nav a {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .article-nav a:hover { color: var(--color-primary); }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav__inner">
+      <a href="/" class="nav__logo">
+        <img src="../../img/logo160.png" alt="TradingPlan" class="nav__logo-img" />TradingPlan<span>.io</span>
+      </a>
+      <a href="/#signup" class="btn btn--primary">Join Beta</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="article-wrap">
+
+      <a href="/help/" class="article-back">← Back to Help Centre</a>
+
+      <div class="article-meta">
+        <span class="article-id">#101</span>
+        <span class="article-date">Last updated: April 2026</span>
+      </div>
+
+      <h1 class="article-title">Empty Account / No Data After Install or Sign-In</h1>
+
+      <div class="article-body">
+
+        <p>If you've opened TradingPlan and your strategies, routines, risk plan, or other content appear to be missing, don't worry — your data is almost certainly safe. This article explains the most common causes and how to resolve each one.</p>
+
+        <div class="callout">
+          <strong>Why does this happen?</strong><br>
+          TradingPlan stores all your data privately in iCloud and syncs it automatically across your devices. An empty account is almost always a sync timing issue, not data loss.
+        </div>
+
+        <h2><span class="step-num">Step 1</span> Check you're signed into the correct Apple ID</h2>
+        <p>TradingPlan ties your data to the Apple ID you used to sign in with Apple. If you sign in on a new device, or sign out and back in on an existing one, your data will only appear if the underlying iCloud account matches.</p>
+        <p>To check:</p>
+        <div class="platform-block">
+          <div class="platform-block__label">iPhone or iPad</div>
+          <ul>
+            <li>Settings → [your name] — confirm the Apple ID at the top</li>
+          </ul>
+        </div>
+        <div class="platform-block">
+          <div class="platform-block__label">Mac</div>
+          <ul>
+            <li>System Settings → [your name] — confirm the Apple ID</li>
+          </ul>
+        </div>
+        <p>If you have multiple Apple IDs (e.g. personal and work), make sure you're using the same one you originally registered with.</p>
+
+        <h2><span class="step-num">Step 2</span> Check iCloud is enabled for TradingPlan</h2>
+        <p>TradingPlan requires iCloud to sync your data. If iCloud is disabled for the app, your data won't load.</p>
+        <div class="platform-block">
+          <div class="platform-block__label">iPhone or iPad</div>
+          <ol>
+            <li>Open Settings → [your name] → iCloud</li>
+            <li>Scroll down and tap <strong>Show All</strong> (or find TradingPlan in the list)</li>
+            <li>Make sure the toggle next to TradingPlan is <strong>on</strong></li>
+          </ol>
+        </div>
+        <div class="platform-block">
+          <div class="platform-block__label">Mac</div>
+          <ol>
+            <li>Open System Settings → [your name] → iCloud → iCloud Drive</li>
+            <li>Click <strong>Options</strong> and ensure TradingPlan is ticked</li>
+          </ol>
+        </div>
+        <p>After enabling iCloud, force-quit TradingPlan and reopen it. Allow a few minutes for the initial sync to complete.</p>
+
+        <h2><span class="step-num">Step 3</span> Wait for the initial sync</h2>
+        <p>When you first install TradingPlan on a new device, iCloud can take anywhere from a few seconds to a few minutes to sync your existing data, depending on your internet connection and the amount of data stored.</p>
+        <p>What to try:</p>
+        <ul>
+          <li>Leave TradingPlan open on a strong Wi-Fi connection for 2–5 minutes</li>
+          <li>Lock and unlock your device, then recheck</li>
+          <li>On Mac, make sure the device is not in Low Power Mode, which can throttle background sync</li>
+        </ul>
+        <p>If your data appears after waiting, no further action is needed.</p>
+
+        <h2><span class="step-num">Step 4</span> Check your internet connection</h2>
+        <p>iCloud sync requires an active internet connection. TradingPlan will show an empty state if the device is offline and no local cache exists (for example, a fresh install).</p>
+        <p>Connect to Wi-Fi and reopen the app.</p>
+
+        <h2><span class="step-num">Step 5</span> Force a sync</h2>
+        <p>You can manually trigger a sync from within TradingPlan:</p>
+        <ul>
+          <li><strong>iPhone / iPad:</strong> On any screen, pull down to refresh</li>
+          <li><strong>Mac:</strong> In the toolbar, tap the ↻ iCloud sync button (top-right of any screen)</li>
+        </ul>
+
+        <h2><span class="step-num">Step 6</span> Sign out and sign back in</h2>
+        <p>If none of the above resolves the issue, signing out and back in can re-establish the iCloud connection.</p>
+        <ol>
+          <li>In TradingPlan, go to <strong>Profile → Log Out</strong></li>
+          <li>Confirm the log out</li>
+          <li>Sign back in using <strong>Sign in with Apple</strong> with the same Apple ID</li>
+        </ol>
+        <div class="callout">
+          <strong>Important:</strong> Signing out does not delete your data. Your content is stored in iCloud and will sync back after you sign in again.
+        </div>
+
+        <h2><span class="step-num">Step 7</span> Check iCloud storage</h2>
+        <p>If your iCloud storage is full, new data cannot sync.</p>
+        <p>To check:</p>
+        <ul>
+          <li>Settings → [your name] → iCloud → <strong>Manage Account Storage</strong></li>
+        </ul>
+        <p>If storage is full, you'll need to free up space or upgrade your iCloud plan before TradingPlan can sync.</p>
+
+        <div class="contact-box">
+          <h2>Still not resolved?</h2>
+          <p>If you've followed all the steps above and your data is still not appearing, please contact us — we want to help.</p>
+          <p><strong>Email:</strong> <a href="mailto:support@tradingplan.io">support@tradingplan.io</a></p>
+          <p>When you get in touch, it helps to include:</p>
+          <ul>
+            <li>Your Apple ID email address (so we can check your account)</li>
+            <li>Which device and iOS/macOS version you're using</li>
+            <li>When you first noticed the issue</li>
+            <li>Whether you recently upgraded to a new device or reinstalled the app</li>
+          </ul>
+          <a href="mailto:support@tradingplan.io" class="btn btn--primary">Email Support</a>
+        </div>
+
+      </div>
+
+      <hr class="article-divider" />
+
+      <div class="article-nav">
+        <a href="/help/">← All Articles</a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="/" class="nav__logo">
+          <img src="../../img/logo160.png" alt="TradingPlan" class="nav__logo-img" />TradingPlan<span>.io</span>
+        </a>
+        <p class="footer__copy">&copy; 2026 TradingPlan Ltd.</p>
+        <p class="footer__disclaimer">TradingPlan is not a financial advisor. Nothing in this app constitutes financial advice.</p>
+      </div>
+      <ul class="footer__links">
+        <li><a href="#">Download — Coming Soon</a></li>
+        <li><a href="mailto:hello@tradingplan.io">Contact Us</a></li>
+        <li><a href="/terms.html">Terms</a></li>
+        <li><a href="/privacy.html">Privacy</a></li>
+        <li><a href="mailto:support@tradingplan.io">Get Help</a></li>
+        <li><a href="https://instagram.com/tradingplan.io" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="../../js/cookies.js"></script>
+</body>
+</html>
