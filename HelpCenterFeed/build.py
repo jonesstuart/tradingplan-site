@@ -246,6 +246,7 @@ def article_page(art_id, title, category, body, prev_art, next_art):
     .contact-box {{ background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius); padding:28px; margin-top:48px; }}
     .contact-box h2 {{ font-size:1.05rem; font-weight:700; margin-bottom:8px; }}
     .contact-box p {{ font-size:.9rem; color:var(--color-text-muted); margin-bottom:16px; line-height:1.7; }}
+    .contact-box .btn {{ color:#000 !important; }}
     .article-divider {{ border:none; border-top:1px solid var(--color-border); margin:48px 0 32px; }}
     .article-nav {{ display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }}
     .article-nav a {{ font-size:.875rem; color:var(--color-text-muted); text-decoration:none; transition:color .15s; }}
