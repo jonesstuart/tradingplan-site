@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creating Your First Strategy — TradingPlan Help</title>
+  <meta name="description" content="Creating Your First Strategy. TradingPlan help centre." />
+  <meta name="robots" content="index, follow" />
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', { analytics_storage: 'denied', wait_for_update: 2000 });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YSX1N3B838"></script>
+  <script>gtag('js', new Date()); gtag('config', 'G-YSX1N3B838');</script>
+
+  <link rel="stylesheet" href="../../css/main.css?v=3" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    .article-wrap { max-width: 720px; padding: 56px 0 120px; }
+    .article-back { display:inline-flex; align-items:center; gap:6px; font-size:.85rem; color:var(--color-text-muted); text-decoration:none; margin-bottom:40px; transition:color .15s; }
+    .article-back:hover { color:var(--color-primary); }
+    .article-meta { display:flex; align-items:center; gap:12px; margin-bottom:16px; flex-wrap:wrap; }
+    .article-id { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--color-primary); background:rgba(166,206,255,.1); border:1px solid rgba(166,206,255,.2); padding:3px 10px; border-radius:100px; }
+    .article-cat { font-size:.72rem; font-weight:600; color:var(--color-text-dim); text-decoration:none; transition:color .15s; }
+    .article-cat:hover { color:var(--color-primary); }
+    .article-date { font-size:.8rem; color:var(--color-text-dim); }
+    .article-title { font-size:clamp(1.6rem,3vw,2.2rem); font-weight:800; letter-spacing:-.5px; margin-bottom:32px; line-height:1.2; }
+    .article-body h2 { font-size:1.05rem; font-weight:700; margin:36px 0 10px; color:var(--color-text); }
+    .article-body h3 { font-size:.82rem; font-weight:700; margin:20px 0 6px; color:var(--color-text-dim); text-transform:uppercase; letter-spacing:.8px; }
+    .article-body p { font-size:.95rem; color:var(--color-text-muted); line-height:1.8; margin-bottom:14px; }
+    .article-body ul, .article-body ol { padding-left:20px; margin-bottom:16px; }
+    .article-body li { font-size:.95rem; color:var(--color-text-muted); line-height:1.8; margin-bottom:6px; }
+    .article-body strong { color:var(--color-text); font-weight:600; }
+    .article-body em { font-style:italic; }
+    .article-body a { color:var(--color-primary); text-decoration:none; }
+    .article-body a:hover { text-decoration:underline; }
+    .callout { background:var(--color-surface); border:1px solid var(--color-border); border-left:3px solid var(--color-primary); border-radius:var(--radius-sm); padding:16px 20px; margin:20px 0; font-size:.9rem; color:var(--color-text-muted); line-height:1.7; }
+    .callout strong { color:var(--color-text); }
+    .table-wrap { overflow-x:auto; margin:20px 0; border:1px solid var(--color-border); border-radius:var(--radius-sm); }
+    .help-table { width:100%; border-collapse:collapse; font-size:.875rem; }
+    .help-table th, .help-table td { padding:10px 16px; text-align:left; border-bottom:1px solid var(--color-border); }
+    .help-table th { font-weight:700; color:var(--color-text); background:var(--color-surface-2); font-size:.78rem; text-transform:uppercase; letter-spacing:.5px; }
+    .help-table td { color:var(--color-text-muted); }
+    .help-table tr:last-child td { border-bottom:none; }
+    .contact-box { background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius); padding:28px; margin-top:48px; }
+    .contact-box h2 { font-size:1.05rem; font-weight:700; margin-bottom:8px; }
+    .contact-box p { font-size:.9rem; color:var(--color-text-muted); margin-bottom:16px; line-height:1.7; }
+    .article-divider { border:none; border-top:1px solid var(--color-border); margin:48px 0 32px; }
+    .article-nav { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+    .article-nav a { font-size:.875rem; color:var(--color-text-muted); text-decoration:none; transition:color .15s; }
+    .article-nav a:hover { color:var(--color-primary); }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav__inner">
+      <a href="/" class="nav__logo">
+        <img src="../../img/logo160.png" alt="TradingPlan" class="nav__logo-img" />TradingPlan<span>.io</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="/help/">Help Centre</a></li>
+      </ul>
+      <a href="https://apps.apple.com/app/id6761687862" class="btn btn--primary nav__cta" target="_blank" rel="noopener">Download Free</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="article-wrap">
+
+      <a href="/help/" class="article-back">← Help Centre</a>
+
+      <div class="article-meta">
+        <span class="article-id">#011</span>
+        <a href="/help/" class="article-cat">Strategies</a>
+        <span class="article-date">Last updated: April 2026</span>
+      </div>
+
+      <h1 class="article-title">Creating Your First Strategy</h1>
+
+      <div class="article-body">
+<h2>What is a Strategy?</h2>
+<p>A strategy in TradingPlan is a precise set of rules for one specific trading setup. It answers the question: "Under exactly what conditions do I enter this trade, where is my stop, and where is my target?"</p>
+<p>You might have one strategy or several — each one represents a different setup you trade. For example:</p>
+<ul>
+<li>A trend-following strategy on the daily chart</li>
+<li>A breakout strategy for the London open</li>
+<li>A mean-reversion strategy at major support/resistance</li>
+</ul>
+<h2>Starting From Scratch vs. Using a Template</h2>
+<h3>Create From Scratch</h3>
+<p>Go to <strong>Strategies</strong> and tap <strong>Create New Strategy</strong>. An empty strategy opens immediately — give it a name and start adding rules.</p>
+<h3>Start From an Example</h3>
+<p>Scroll down in the Strategies tab to the <strong>Example Strategies</strong> section. These are real, documented trading approaches built into the app. You can't edit them directly, but they're an excellent reference for how a well-structured strategy looks.</p>
+<div class="callout"><strong>Important:</strong> Example strategies are for educational purposes only. They are not financial advice and carry no guarantee of profitability. Always test any strategy thoroughly before trading it live.</div>
+<h2>Naming Your Strategy</h2>
+<p>Give your strategy a name that immediately tells you what it is. Good names:</p>
+<ul>
+<li>"EUR/USD Daily Trend Follow"</li>
+<li>"London Breakout"</li>
+<li>"SPX Mean Reversion"</li>
+<li>"Momentum Swing — Equities"</li>
+</ul>
+<p>Vague names like "Strategy 1" make it harder to remember what the strategy is when you're about to trade.</p>
+<h2>The Six Strategy Sections</h2>
+<p>Each strategy is divided into six sections. You don't have to fill them all in, but the more complete your rules, the more useful the strategy flow becomes.</p>
+<h3>1. Analysis</h3>
+<p>The market conditions that must be present before you'll consider this setup. This is your "big picture" context. Examples:</p>
+<ul>
+<li>"Daily trend must be bullish (price above 200 EMA)"</li>
+<li>"Market must be in a range, between defined S/R levels"</li>
+<li>"RSI must be above 50 on the 4H timeframe"</li>
+</ul>
+<h3>2. Directional Bias</h3>
+<p>How you determine trade direction. This is your filter for whether you're looking long, short, or both. Examples:</p>
+<ul>
+<li>"Only trade in direction of daily trend"</li>
+<li>"Long above the weekly pivot, short below"</li>
+<li>"Direction set by the opening range break"</li>
+</ul>
+<h3>3. Entry</h3>
+<p>The specific trigger that gets you into the trade. This is the most precise section — your entry conditions should be unambiguous. Examples:</p>
+<ul>
+<li>"Break and close above the H4 resistance on increased volume"</li>
+<li>"Pin bar reversal at key support level with bullish close"</li>
+<li>"Price pulls back to the 50 EMA, then forms a bullish engulfing candle"</li>
+</ul>
+<h3>4. Stop-Loss</h3>
+<p>Where your stop goes and why. Includes conditions for initial placement and any rules about moving the stop. Examples:</p>
+<ul>
+<li>"Stop placed 10 pips below the entry candle low"</li>
+<li>"Stop below the most recent swing low, minimum 1.5x ATR"</li>
+<li>"No stop wider than 2% of account risk"</li>
+</ul>
+<h3>5. Target</h3>
+<p>Your profit target logic. This could be a fixed R-multiple, a price level, or a structure-based target. Examples:</p>
+<ul>
+<li>"Target is 2R minimum. Close 50% at 1R, move stop to breakeven"</li>
+<li>"Target the next significant resistance level on the H4 chart"</li>
+<li>"Trail stop using a 20 EMA once 1R is reached"</li>
+</ul>
+<h3>6. Active Management</h3>
+<p>Rules for managing the trade once it's open. How do you react if price stalls? Do you add to winners? What triggers early exit? Examples:</p>
+<ul>
+<li>"If price consolidates for more than 3 candles without momentum, close 50%"</li>
+<li>"Do not move stop to breakeven until 1R profit achieved"</li>
+<li>"Add to position on pullback to entry if original conditions still valid"</li>
+</ul>
+<h2>Adding Rules</h2>
+<p>Inside each section, tap <strong>Add Rule</strong> to add a new rule. Rules are written in plain text — just type what the condition is. You can:</p>
+<ul>
+<li>Add as many rules as you need</li>
+<li>Reorder rules by dragging</li>
+<li>Group related rules together using the group feature</li>
+<li>Enable or disable individual rules without deleting them</li>
+</ul>
+<h2>Including Your Strategy in Your Plan</h2>
+<p>Once your strategy has at least a basic set of rules, tap the <strong>star icon</strong> next to its name in the Strategies list. This marks it as "included in your plan." Included strategies:</p>
+<ul>
+<li>Appear on the Strategies dashboard widget</li>
+<li>Are available when you run a strategy flow</li>
+<li>Show in the sidebar (on iPad and Mac)</li>
+</ul>
+<p>Strategies without a star are still saved, but they're excluded from your active plan. This is useful for strategies you're still developing or have retired.</p>
+<h2>Free Plan Limit</h2>
+<p>On the free plan, you can have <strong>one strategy</strong>. If you need more, upgrade to Pro. See <a href="../06-Account-and-Subscription/free-vs-pro.html">Free Plan vs Pro</a> for full details.</p>
+
+        <div class="contact-box">
+          <h2>Still need help?</h2>
+          <p>If this article didn't answer your question, our support team is happy to help.</p>
+          <a href="mailto:support@tradingplan.io" class="btn btn--primary">Email support@tradingplan.io</a>
+        </div>
+      </div>
+
+      <hr class="article-divider" />
+
+      <div class="article-nav">
+        <span></span>
+        <a href="/help/">All Articles</a>
+        <a href="understanding-strategy-rules.html">Understanding Strategy Rules →</a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="/" class="nav__logo">
+          <img src="../../img/logo160.png" alt="TradingPlan" class="nav__logo-img" />TradingPlan<span>.io</span>
+        </a>
+        <p class="footer__copy">&copy; 2026 TradingPlan Ltd.</p>
+        <p class="footer__disclaimer">TradingPlan is not a financial advisor. Nothing in this app constitutes financial advice.</p>
+      </div>
+      <ul class="footer__links">
+        <li><a href="https://apps.apple.com/app/id6761687862" target="_blank" rel="noopener">Download on the App Store</a></li>
+        <li><a href="/help/">Help Centre</a></li>
+        <li><a href="mailto:hello@tradingplan.io">Contact Us</a></li>
+        <li><a href="/terms.html">Terms of Service</a></li>
+        <li><a href="/privacy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="../../js/cookies.js"></script>
+</body>
+</html>

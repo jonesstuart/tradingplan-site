@@ -19,7 +19,7 @@
     gtag('config', 'G-YSX1N3B838');
   </script>
 
-  <link rel="stylesheet" href="../css/main.css?v=2" />
+  <link rel="stylesheet" href="../css/main.css?v=3" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -76,74 +76,76 @@
       font-size: 1rem;
     }
 
+    /* ── HELP LAYOUT ── */
+    .help-body {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 0;
+      align-items: start;
+    }
+    @media (max-width: 800px) { .help-body { grid-template-columns: 1fr; } }
+
+    /* ── CATEGORY SIDEBAR ── */
+    .help-sidebar {
+      padding: 40px 24px 40px 0;
+      border-right: 1px solid var(--color-border);
+      position: sticky;
+      top: 72px;
+    }
+    @media (max-width: 800px) {
+      .help-sidebar {
+        position: static;
+        padding: 24px 0 0;
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+      }
+    }
+    .sidebar-nav { list-style: none; padding: 0; margin: 0; }
+    .sidebar-nav li + li { margin-top: 2px; }
+    .sidebar-nav a {
+      display: block;
+      padding: 8px 12px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .sidebar-nav a:hover,
+    .sidebar-nav a.is-active {
+      background: rgba(166,206,255,0.08);
+      color: var(--color-primary);
+    }
+    @media (max-width: 800px) {
+      .sidebar-nav { display: flex; flex-wrap: wrap; gap: 8px; padding-bottom: 24px; }
+      .sidebar-nav li + li { margin-top: 0; }
+      .sidebar-nav a { padding: 6px 12px; font-size: 0.8rem; border: 1px solid var(--color-border); }
+    }
+
     /* ── HELP SECTIONS ── */
-    .help-section { padding: 56px 0; border-bottom: 1px solid var(--color-border); }
-    .help-section:last-child { border-bottom: none; }
+    .help-sections { padding: 40px 0 40px 40px; }
+    @media (max-width: 800px) { .help-sections { padding: 40px 0; } }
+
+    .help-section { padding-bottom: 48px; margin-bottom: 48px; border-bottom: 1px solid var(--color-border); }
+    .help-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
     .help-section__title {
       font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1.5px;
       color: var(--color-primary);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
-    /* ── ARTICLE CARDS (recent) ── */
-    .article-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    @media (max-width: 900px) { .article-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 600px) { .article-grid { grid-template-columns: 1fr; } }
-
-    .article-card {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius);
-      padding: 24px;
-      text-decoration: none;
-      display: block;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .article-card:hover {
-      border-color: rgba(166,206,255,0.3);
-      transform: translateY(-2px);
-    }
-    .article-card__id {
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--color-text-dim);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-    }
-    .article-card__title {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--color-text);
-      margin-bottom: 8px;
-      line-height: 1.4;
-    }
-    .article-card__excerpt {
-      font-size: 0.875rem;
-      color: var(--color-text-muted);
-      line-height: 1.6;
-    }
-    .article-card__date {
-      font-size: 0.75rem;
-      color: var(--color-text-dim);
-      margin-top: 16px;
-    }
-
-    /* ── ARTICLE LIST (all / search results) ── */
+    /* ── ARTICLE LIST ── */
     .article-list { display: flex; flex-direction: column; gap: 0; }
     .article-list-item {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      padding: 16px 0;
+      padding: 14px 0;
       border-bottom: 1px solid var(--color-border);
       text-decoration: none;
       transition: color 0.15s;
@@ -164,8 +166,9 @@
     }
 
     /* ── SEARCH RESULTS ── */
-    .search-results { display: none; }
-    .search-results.is-active { display: block; }
+    .search-results-section { display: none; padding: 40px 0 40px 40px; }
+    .search-results-section.is-active { display: block; }
+    @media (max-width: 800px) { .search-results-section { padding: 40px 0; } }
     .search-results__count {
       font-size: 0.85rem;
       color: var(--color-text-muted);
@@ -178,6 +181,7 @@
     }
 
     .default-content.is-hidden { display: none; }
+    .help-sidebar.is-hidden { display: none; }
   </style>
 </head>
 <body>
@@ -187,7 +191,7 @@
       <a href="/" class="nav__logo">
         <img src="../img/logo160.png" alt="TradingPlan" class="nav__logo-img" />TradingPlan<span>.io</span>
       </a>
-      <a href="/#signup" class="btn btn--primary">Join Beta</a>
+      <a href="https://apps.apple.com/app/id6761687862" class="btn btn--primary" target="_blank" rel="noopener">Download Free</a>
     </div>
   </nav>
 
@@ -195,37 +199,32 @@
   <div class="help-hero">
     <div class="container">
       <h1>Help Centre</h1>
-      <p>Search articles or browse below</p>
+      <p>Search articles or browse by category below</p>
       <div class="search-wrap">
-        <input type="search" class="search-input" id="searchInput" placeholder="Search — try 'checklist' or 'getting started'…" autocomplete="off" />
+        <input type="search" class="search-input" id="searchInput" placeholder="Search — try 'iCloud' or 'strategy flow'…" autocomplete="off" />
         <span class="search-icon">⌕</span>
       </div>
     </div>
   </div>
 
   <div class="container">
+    <div class="help-body">
 
-    <!-- SEARCH RESULTS (hidden until search) -->
-    <div class="search-results help-section" id="searchResults">
-      <p class="help-section__title">Search Results</p>
-      <p class="search-results__count" id="searchCount"></p>
-      <div class="article-list" id="searchList"></div>
-      <p class="no-results" id="noResults" style="display:none;">No articles found. Try a different keyword.</p>
-    </div>
+      <!-- SIDEBAR -->
+      <aside class="help-sidebar" id="helpSidebar">
+        <ul class="sidebar-nav" id="sidebarNav"></ul>
+      </aside>
 
-    <!-- DEFAULT CONTENT -->
-    <div class="default-content" id="defaultContent">
-
-      <!-- MOST RECENT -->
-      <div class="help-section">
-        <p class="help-section__title">Most Recent</p>
-        <div class="article-grid" id="recentGrid"></div>
+      <!-- SEARCH RESULTS (hidden until search) -->
+      <div class="search-results-section" id="searchResults">
+        <p class="search-results__count" id="searchCount"></p>
+        <div class="article-list" id="searchList"></div>
+        <p class="no-results" id="noResults" style="display:none;">No articles found. Try a different keyword.</p>
       </div>
 
-      <!-- ALL ARTICLES -->
-      <div class="help-section">
-        <p class="help-section__title">All Articles</p>
-        <div class="article-list" id="allList"></div>
+      <!-- DEFAULT CONTENT: categories -->
+      <div class="help-sections default-content" id="defaultContent">
+        <!-- populated by JS -->
       </div>
 
     </div>
@@ -242,7 +241,7 @@
         <p class="footer__disclaimer">TradingPlan is not a financial advisor. Nothing in this app constitutes financial advice.</p>
       </div>
       <ul class="footer__links">
-        <li><a href="#">Download — Coming Soon</a></li>
+        <li><a href="https://apps.apple.com/app/id6761687862" target="_blank" rel="noopener">Download on the App Store</a></li>
         <li><a href="mailto:hello@tradingplan.io">Contact Us</a></li>
         <li><a href="/terms.html">Terms</a></li>
         <li><a href="/privacy.html">Privacy</a></li>
@@ -254,68 +253,116 @@
 
   <script>
     /* ── ARTICLE DATA ── */
-    /* Add new articles here as you create them */
     const articles = [
-      {
-        id: '101',
-        title: 'Empty Account / No Data After Install or Sign-In',
-        date: '2026-04-21',
-        excerpt: 'If your strategies, routines or risk plan appear missing after install or sign-in, your data is almost certainly safe. Follow these steps to resolve it.',
-        keywords: ['empty', 'missing data', 'no data', 'sync', 'icloud', 'sign in', 'install', 'account', 'lost data', 'apple id', 'new device'],
-        url: 'articles/101-empty-account-no-data-after-install.html'
-      }
+      { id: '001', title: "Welcome to TradingPlan", category: "Getting Started", date: '2026-04-21', excerpt: "TradingPlan is a personal trading discipline app for iPhone, iPad, and Mac. It helps you build, document, and execute your trading plan — so you trade by your rules, not by your em…", keywords: ["tradingplan", "welcome", "getting started", "getting-started"], url: 'articles/welcome-and-overview.html' },
+      { id: '002', title: "Setting Up Your Trading Plan", category: "Getting Started", date: '2026-04-21', excerpt: "When you first open TradingPlan, the onboarding flow walks you through the basics. But there's more to configure beyond that first screen. This guide covers the complete setup path…", keywords: ["getting started", "plan", "your", "setting", "trading", "getting-started"], url: 'articles/setting-up-your-plan.html' },
+      { id: '003', title: "Navigating the App", category: "Getting Started", date: '2026-04-21', excerpt: "TradingPlan is organised into five main areas, accessible from the tab bar at the bottom of the screen (iPhone) or the sidebar (iPad and Mac).", keywords: ["getting started", "the", "app", "navigating", "getting-started"], url: 'articles/navigating-the-app.html' },
+      { id: '011', title: "Creating Your First Strategy", category: "Strategies", date: '2026-04-21', excerpt: "A strategy in TradingPlan is a precise set of rules for one specific trading setup. It answers the question: \"Under exactly what conditions do I enter this trade, where is my stop,…", keywords: ["your", "strategy", "strategies", "creating", "first"], url: 'articles/creating-your-first-strategy.html' },
+      { id: '012', title: "Understanding Strategy Rules", category: "Strategies", date: '2026-04-21', excerpt: "Each strategy section (Analysis, Entry, Stop-Loss, etc.) contains rule groups, and each group contains individual rules.", keywords: ["rules", "strategies", "strategy", "understanding"], url: 'articles/understanding-strategy-rules.html' },
+      { id: '013', title: "Running a Strategy Flow", category: "Strategies", date: '2026-04-21', excerpt: "A strategy flow is a guided, step-by-step checklist that walks you through every rule in your strategy before you enter a trade. Instead of trying to remember your rules from memor…", keywords: ["running", "strategies", "strategy", "flow"], url: 'articles/running-a-strategy-flow.html' },
+      { id: '014', title: "Including Strategies in Your Plan", category: "Strategies", date: '2026-04-21', excerpt: "Every strategy you create starts as excluded — it exists in your library but isn't part of your active trading plan. To make a strategy active and visible in the rest of the app, y…", keywords: ["including", "your", "strategies", "plan"], url: 'articles/including-strategies-in-your-plan.html' },
+      { id: '021', title: "Trade Plan Overview", category: "Trade Plan", date: '2026-04-21', excerpt: "The Trade Plan tab is where you build your complete trading identity — the document that defines everything about how you operate as a trader. It's not just rules; it's who you are…", keywords: ["trade-plan", "trade plan", "plan", "overview", "trade"], url: 'articles/trade-plan-overview.html' },
+      { id: '022', title: "Your Trading Philosophy", category: "Trade Plan", date: '2026-04-21', excerpt: "Most traders skip this. They jump straight to strategies and indicators — without knowing who they are as a trader. The result is inconsistency: switching approaches, second-guessi…", keywords: ["trade-plan", "trade plan", "your", "philosophy", "trading"], url: 'articles/your-trading-philosophy.html' },
+      { id: '023', title: "Trader Mindset", category: "Trade Plan", date: '2026-04-21', excerpt: "The Mindset section is your personal psychological anchor within your trading plan. It's a place to articulate the mental and emotional side of trading — the beliefs, reminders, an…", keywords: ["trade-plan", "trader", "mindset", "trade plan"], url: 'articles/trader-mindset.html' },
+      { id: '024', title: "Your Why", category: "Trade Plan", date: '2026-04-21', excerpt: "Your Why is your motivation for trading — the real reason you're doing this, beyond the surface answer of \"to make money.\"", keywords: ["trade-plan", "trade plan", "your", "why"], url: 'articles/your-why.html' },
+      { id: '025', title: "Business Notes", category: "Trade Plan", date: '2026-04-21', excerpt: "Business Notes is a freeform text section within your trading plan for recording key decisions, observations, and lessons about your trading business.", keywords: ["trade-plan", "trade plan", "business", "notes"], url: 'articles/business-notes.html' },
+      { id: '031', title: "Risk Management Overview", category: "Risk Management", date: '2026-04-21', excerpt: "Most traders think about risk as \"how much do I risk per trade?\" That's important — but it's only one piece. Complete risk management answers a much broader set of questions:", keywords: ["management", "overview", "risk-management", "risk management", "risk"], url: 'articles/risk-management-overview.html' },
+      { id: '032', title: "Position Sizing", category: "Risk Management", date: '2026-04-21', excerpt: "Position sizing is how you determine how large a trade is relative to your account. It's not just about picking a number — it's about ensuring that no single trade can seriously da…", keywords: ["risk-management", "risk management", "position", "sizing"], url: 'articles/position-sizing.html' },
+      { id: '033', title: "Advanced Risk Features (Pro)", category: "Risk Management", date: '2026-04-21', excerpt: "Pro subscribers unlock eight additional risk categories in the Risk Management section. These cover the scenarios that catch intermediate and advanced traders out — the ones that d…", keywords: ["pro", "advanced", "features", "risk management", "risk-management", "risk"], url: 'articles/advanced-risk-features.html' },
+      { id: '041', title: "Creating a Trading Routine", category: "Routines", date: '2026-04-21', excerpt: "A trading routine is a structured checklist you run before, during, or after a trading session. It brings consistency to how you show up as a trader — ensuring you're always prepar…", keywords: ["trading", "creating", "routines", "routine"], url: 'articles/creating-a-routine.html' },
+      { id: '042', title: "Running Your Routine Flow", category: "Routines", date: '2026-04-21', excerpt: "A routine flow is a guided, step-by-step experience that walks you through your routine one item at a time. Instead of reading a static list and trying to remember where you are, t…", keywords: ["your", "flow", "routine", "running", "routines"], url: 'articles/running-your-routine-flow.html' },
+      { id: '043', title: "Routine Templates", category: "Routines", date: '2026-04-21', excerpt: "TradingPlan includes a library of example routines — pre-built frameworks you can use as a starting point. Each template is based on a common trading session type and contains a pr…", keywords: ["routine", "routines", "templates"], url: 'articles/routine-templates.html' },
+      { id: '051', title: "Free Plan vs Pro", category: "Account & Subscription", date: '2026-04-21', excerpt: "The free plan is genuinely useful. You can build a complete trading plan, create one strategy with unlimited rules, create one routine with unlimited steps, and sync across devices.", keywords: ["account & subscription", "pro", "plan", "account-subscription", "free"], url: 'articles/free-vs-pro.html' },
+      { id: '052', title: "Upgrading to Pro", category: "Account & Subscription", date: '2026-04-21', excerpt: "Upgrade to Pro from Profile → Upgrade to Pro, or tap any locked Pro feature. Pro unlocks unlimited strategies, unlimited routines, and the full advanced risk management suite.", keywords: ["upgrading", "account-subscription", "account & subscription", "pro"], url: 'articles/upgrading-to-pro.html' },
+      { id: '053', title: "Managing Your Subscription", category: "Account & Subscription", date: '2026-04-21', excerpt: "TradingPlan Pro subscriptions are managed entirely through Apple. TradingPlan doesn't handle billing directly — Apple processes all payments and manages subscription terms.", keywords: ["account & subscription", "subscription", "account-subscription", "your", "managing"], url: 'articles/managing-your-subscription.html' },
+      { id: '054', title: "Sign In With Apple", category: "Account & Subscription", date: '2026-04-21', excerpt: "TradingPlan uses Sign In With Apple as the only authentication method. This was a deliberate choice:", keywords: ["apple", "account & subscription", "with", "account-subscription", "sign"], url: 'articles/sign-in-with-apple.html' },
+      { id: '061', title: "iCloud Sync Explained", category: "Data & Sync", date: '2026-04-21', excerpt: "All your TradingPlan data is stored in iCloud's private database, associated with your Apple ID. This means:", keywords: ["sync", "explained", "icloud", "data & sync", "data-sync"], url: 'articles/icloud-sync.html' },
+      { id: '062', title: "Using TradingPlan on Multiple Devices", category: "Data & Sync", date: '2026-04-21', excerpt: "One subscription (or free plan) covers all your devices. There's no separate purchase for Mac or iPad. Sign in with the same Apple ID everywhere and your entire plan syncs automati…", keywords: ["tradingplan", "devices", "using", "multiple", "data-sync", "data & sync"], url: 'articles/multiple-devices.html' },
+      { id: '101', title: 'Empty Account / No Data After Install or Sign-In', category: "Troubleshooting", date: '2026-04-21', excerpt: 'If your strategies, routines or risk plan appear missing after install or sign-in, your data is almost certainly safe. Follow these steps to resolve it.', keywords: ['empty', 'missing data', 'no data', 'sync', 'icloud', 'sign in', 'install', 'account', 'lost data', 'apple id', 'new device'], url: 'articles/101-empty-account-no-data-after-install.html' },
+      { id: '102', title: "Data Not Syncing", category: "Troubleshooting", date: '2026-04-21', excerpt: "Before diving into advanced steps, confirm these three things: both devices are connected to the internet, both are signed in with the same Apple ID, and a few minutes have passed.", keywords: ["troubleshooting", "data", "not", "syncing", "icloud", "sync"], url: 'articles/data-not-syncing.html' },
+      { id: '103', title: "Can't Sign In", category: "Troubleshooting", date: '2026-04-21', excerpt: "Sign In With Apple requires an active Apple ID and internet connection. Most sign-in failures come down to one of these:", keywords: ["sign", "can", "troubleshooting", "apple id", "login"], url: 'articles/cant-sign-in.html' },
+      { id: '104', title: "Data Missing After Update or Reinstall", category: "Troubleshooting", date: '2026-04-21', excerpt: "TradingPlan stores all data in iCloud, not locally on your device. Deleting or reinstalling the app does not delete your data. It's still in iCloud, attached to your Apple ID.", keywords: ["update", "missing", "reinstall", "after", "data", "troubleshooting", "icloud"], url: 'articles/missing-data.html' },
+      { id: '105', title: "Subscription Not Activating", category: "Troubleshooting", date: '2026-04-21', excerpt: "The most reliable fix is to use Restore Purchase:", keywords: ["subscription", "activating", "not", "troubleshooting", "pro", "restore"], url: 'articles/subscription-not-activating.html' },
+      { id: '106', title: "Biometric Lock Issues", category: "Troubleshooting", date: '2026-04-21', excerpt: "TradingPlan includes an optional biometric lock that requires Face ID or Touch ID to open the app. This prevents anyone who picks up your device from seeing your trading plan.", keywords: ["troubleshooting", "biometric", "issues", "lock", "face id", "touch id"], url: 'articles/biometric-lock-issues.html' },
+      { id: '107', title: "App Crashes or Won't Open", category: "Troubleshooting", date: '2026-04-21', excerpt: "Before anything else, try these three steps in order:", keywords: ["crashes", "won", "open", "app", "troubleshooting", "crash"], url: 'articles/app-crashes.html' },
+      { id: '108', title: "Strategy Flow Not Progressing", category: "Troubleshooting", date: '2026-04-21', excerpt: "If the \"Start Flow\" button isn't appearing or does nothing:", keywords: ["strategy", "flow", "progressing", "not", "troubleshooting"], url: 'articles/strategy-flow-not-working.html' },
+      { id: '111', title: "Customising Your Dashboard", category: "Tips & Features", date: '2026-04-21', excerpt: "The Dashboard is the first screen you see when you open TradingPlan. It's a customisable collection of widgets — cards that show different parts of your trading plan at a glance.", keywords: ["tips & features", "tips-features", "dashboard", "customising", "your", "widgets"], url: 'articles/customising-the-dashboard.html' },
+      { id: '112', title: "Achievements", category: "Tips & Features", date: '2026-04-21', excerpt: "Achievements are milestones that unlock as you build and use your trading plan. They're a way of recognising the work you're putting in — and they mark real progress.", keywords: ["tips & features", "tips-features", "achievements"], url: 'articles/achievements.html' },
+      { id: '113', title: "Notifications", category: "Tips & Features", date: '2026-04-21', excerpt: "TradingPlan can send you reminders to run your trading routines. That's it — there are no marketing notifications, no trade signals, and no spammy badges.", keywords: ["tips & features", "tips-features", "notifications", "reminders"], url: 'articles/notifications.html' },
+      { id: '114', title: "Using TradingPlan on Mac", category: "Tips & Features", date: '2026-04-21', excerpt: "TradingPlan on Mac is a full native Mac app — not an iPhone app running in a window. It uses the full Mac layout with a sidebar, keyboard shortcuts, and a multi-column display.", keywords: ["tips & features", "tradingplan", "tips-features", "mac", "using"], url: 'articles/using-on-mac.html' },
     ];
 
-    /* Sort by date descending */
-    const sorted = [...articles].sort((a, b) => new Date(b.date) - new Date(a.date));
+    /* Category order */
+    const categoryOrder = [
+      "Getting Started",
+      "Strategies",
+      "Trade Plan",
+      "Risk Management",
+      "Routines",
+      "Account & Subscription",
+      "Data & Sync",
+      "Troubleshooting",
+      "Tips & Features"
+    ];
 
-    function formatDate(d) {
-      return new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-    }
-
-    /* ── RENDER RECENT CARDS ── */
-    const recentGrid = document.getElementById('recentGrid');
-    sorted.slice(0, 3).forEach(a => {
-      recentGrid.innerHTML += `
-        <a href="${a.url}" class="article-card">
-          <div class="article-card__id">#${a.id}</div>
-          <div class="article-card__title">${a.title}</div>
-          <div class="article-card__excerpt">${a.excerpt}</div>
-          <div class="article-card__date">${formatDate(a.date)}</div>
-        </a>`;
+    /* Group articles by category */
+    const byCategory = {};
+    categoryOrder.forEach(cat => { byCategory[cat] = []; });
+    articles.forEach(a => {
+      if (byCategory[a.category]) byCategory[a.category].push(a);
     });
 
-    /* ── RENDER ALL ARTICLES LIST ── */
-    const allList = document.getElementById('allList');
-    sorted.forEach(a => {
-      allList.innerHTML += `
+    /* ── BUILD SIDEBAR ── */
+    const sidebarNav = document.getElementById('sidebarNav');
+    categoryOrder.forEach(cat => {
+      const count = byCategory[cat].length;
+      if (!count) return;
+      const slug = cat.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+      sidebarNav.innerHTML += `<li><a href="#cat-${slug}">${cat} <span style="opacity:0.45;font-weight:400">(${count})</span></a></li>`;
+    });
+
+    /* ── BUILD CATEGORY SECTIONS ── */
+    const defaultContent = document.getElementById('defaultContent');
+    categoryOrder.forEach(cat => {
+      const list = byCategory[cat];
+      if (!list.length) return;
+      const slug = cat.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+      let rows = list.map(a => `
         <a href="${a.url}" class="article-list-item">
           <span class="article-list-item__title">${a.title}</span>
-          <span class="article-list-item__meta">#${a.id} &middot; ${formatDate(a.date)}</span>
-        </a>`;
+          <span class="article-list-item__meta">#${a.id}</span>
+        </a>`).join('');
+      defaultContent.innerHTML += `
+        <div class="help-section" id="cat-${slug}">
+          <p class="help-section__title">${cat}</p>
+          <div class="article-list">${rows}</div>
+        </div>`;
     });
 
     /* ── SEARCH ── */
-    const searchInput  = document.getElementById('searchInput');
-    const searchResults = document.getElementById('searchResults');
-    const searchList   = document.getElementById('searchList');
-    const searchCount  = document.getElementById('searchCount');
-    const noResults    = document.getElementById('noResults');
-    const defaultContent = document.getElementById('defaultContent');
+    const searchInput    = document.getElementById('searchInput');
+    const searchResults  = document.getElementById('searchResults');
+    const searchList     = document.getElementById('searchList');
+    const searchCount    = document.getElementById('searchCount');
+    const noResults      = document.getElementById('noResults');
+    const defaultEl      = document.getElementById('defaultContent');
+    const sidebarEl      = document.getElementById('helpSidebar');
 
     searchInput.addEventListener('input', function () {
       const q = this.value.trim().toLowerCase();
 
       if (!q) {
         searchResults.classList.remove('is-active');
-        defaultContent.classList.remove('is-hidden');
+        defaultEl.classList.remove('is-hidden');
+        sidebarEl.classList.remove('is-hidden');
         return;
       }
 
       searchResults.classList.add('is-active');
-      defaultContent.classList.add('is-hidden');
+      defaultEl.classList.add('is-hidden');
+      sidebarEl.classList.add('is-hidden');
 
-      const matches = sorted.filter(a =>
+      const matches = articles.filter(a =>
         a.title.toLowerCase().includes(q) ||
         a.excerpt.toLowerCase().includes(q) ||
         a.keywords.some(k => k.includes(q))
@@ -335,10 +382,24 @@
         searchList.innerHTML += `
           <a href="${a.url}" class="article-list-item">
             <span class="article-list-item__title">${a.title}</span>
-            <span class="article-list-item__meta">#${a.id} &middot; ${formatDate(a.date)}</span>
+            <span class="article-list-item__meta">#${a.id} &middot; ${a.category}</span>
           </a>`;
       });
     });
+
+    /* ── SIDEBAR ACTIVE STATE on scroll ── */
+    const sections = document.querySelectorAll('.help-section[id]');
+    const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          sidebarLinks.forEach(l => l.classList.remove('is-active'));
+          const link = document.querySelector(`.sidebar-nav a[href="#${entry.target.id}"]`);
+          if (link) link.classList.add('is-active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -60% 0px' });
+    sections.forEach(s => observer.observe(s));
   </script>
 
   <script src="../js/cookies.js"></script>
