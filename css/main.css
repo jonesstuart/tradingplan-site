@@ -1075,6 +1075,7 @@ img {
 }
 .phone-frame-img {
   width: 100%;
+  height: auto;
   display: block;
 }
 
