@@ -51,6 +51,26 @@ If you've been using two Apple IDs accidentally, contact us — we may be able t
 
 ---
 
+## "Hide My Email" and Contacting Support
+
+When you first signed in, Apple may have offered to **Hide My Email**. If you chose this, Apple created a private relay address (something like `abc123@privaterelay.appleid.com`) instead of sharing your real email.
+
+**What this means for you:**
+
+- TradingPlan only has your relay address, not your real email
+- If you email support, the address you write from won't match what we have on file — that's completely fine, we can still help you
+- Any emails we send to your relay address are forwarded to your real inbox by Apple
+
+**To check or manage your relay email:**
+
+1. Go to **Settings → [your name] → Sign in & Security → Sign in with Apple**
+2. Find TradingPlan in the list
+3. Tap it to see your relay email and forwarding settings
+
+> **Note:** You cannot change from "Hide My Email" to "Share My Email" after the initial sign-in. This is an Apple restriction. Your account works identically either way — it has no effect on your data, subscription, or sync.
+
+---
+
 ## Signing Out
 
 To sign out of TradingPlan:

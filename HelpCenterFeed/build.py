@@ -46,6 +46,7 @@ ARTICLES = [
     ("08-Troubleshooting",          "biometric-lock-issues",             "106", "Troubleshooting"),
     ("08-Troubleshooting",          "app-crashes",                       "107", "Troubleshooting"),
     ("08-Troubleshooting",          "strategy-flow-not-working",         "108", "Troubleshooting"),
+    ("08-Troubleshooting",          "profile-photo-issues",              "109", "Troubleshooting"),
     ("09-Tips-and-Features",        "customising-the-dashboard",         "111", "Tips & Features"),
     ("09-Tips-and-Features",        "achievements",                      "112", "Tips & Features"),
     ("09-Tips-and-Features",        "notifications",                     "113", "Tips & Features"),
