@@ -7,7 +7,7 @@
 
 ## Overview
 
-Pro subscribers unlock eight additional risk categories in the Risk Management section. These cover the scenarios that catch intermediate and advanced traders out — the ones that don't show up on a beginner's radar but become increasingly important as account size and strategy complexity grows.
+Pro subscribers unlock nine additional risk categories in the Risk Management section. These cover the scenarios that catch intermediate and advanced traders out — the ones that don't show up on a beginner's radar but become increasingly important as account size and strategy complexity grows.
 
 All advanced sections follow the same pattern: toggle the section on, configure your rules, and save.
 

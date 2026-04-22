@@ -13,12 +13,12 @@
 | Routines | 1 | Unlimited |
 | Trade Plan (Philosophy, Mindset, Why, Notes) | Full access | Full access |
 | Risk Management — Position Sizing & Drawdown | Full access | Full access |
-| Risk Management — Advanced (8 additional sections) | Locked | Full access |
+| Risk Management — Advanced (9 additional sections) | Locked | Full access |
+| Flow History | — | Full access |
 | Dashboard widgets | All | All |
 | iCloud sync | Yes | Yes |
 | All platforms (iPhone, iPad, Mac) | Yes | Yes |
 | Plan Builder | Yes | Yes |
-| Flow History | Yes | Yes |
 | Example Strategies | View only | View only |
 | Achievements | Yes | Yes |
 
@@ -34,6 +34,8 @@ The free plan is genuinely useful. You can:
 - Sync everything across your devices via iCloud
 - Use all dashboard widgets
 
+Flow History and PDF Export are PRO-only features.
+
 For traders just starting out, or traders who have one focused setup they're working with, the free plan covers the essentials.
 
 ---
@@ -47,7 +49,7 @@ If you trade more than one setup — different markets, different timeframes, di
 Pre-market, pre-trade, post-session, weekly review — serious traders run multiple routines for different purposes. Pro lets you create all of them.
 
 ### Advanced Risk Management
-The eight advanced risk sections (concurrent trade risk, correlation risk, spread risk, news risk, slippage risk, overnight risk, execution error protocol, conditions to trade, and technology risk) are Pro-only. These are the sections that move risk management from "basic" to "professional-grade." See [Advanced Risk Features](advanced-risk-features.md) for details.
+The nine advanced risk sections (concurrent trade risk, correlation risk, spread risk, news risk, slippage risk, overnight risk, execution error protocol, conditions to trade, and technology risk) are Pro-only. These are the sections that move risk management from "basic" to "professional-grade." See [Advanced Risk Features](advanced-risk-features.md) for details.
 
 ---
 
