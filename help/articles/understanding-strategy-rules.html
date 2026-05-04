@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Understanding Strategy Rules — TradingPlan Help</title>
-  <meta name="description" content="Understanding Strategy Rules. TradingPlan help centre." />
+  <meta name="description" content="How strategy rules and rule groups work in TradingPlan, and how to write rules that make your strategy flow effective." />
   <meta name="robots" content="index, follow" />
 
   <script>
@@ -84,11 +84,29 @@
       <h1 class="article-title">Understanding Strategy Rules</h1>
 
       <div class="article-body">
+
 <h2>How Rules Are Structured</h2>
 <p>Each strategy section (Analysis, Entry, Stop-Loss, etc.) contains <strong>rule groups</strong>, and each group contains individual <strong>rules</strong>.</p>
 <p>Think of it as:</p>
-<p>``` Section (e.g. Entry) └── Rule Group (e.g. "Primary Entry Trigger") └── Rule: "Break and close above H4 resistance" └── Rule: "Volume must be above 20-period average" └── Rule Group (e.g. "Confirmation") └── Rule: "Stochastic must be below 80 and rising" ```</p>
+<ul>
+<li>Section (e.g. Entry)
+  <ul>
+    <li>Rule Group (e.g. "Primary Entry Trigger")
+      <ul>
+        <li>Rule: "Break and close above H4 resistance"</li>
+        <li>Rule: "Volume must be above 20-period average"</li>
+      </ul>
+    </li>
+    <li>Rule Group (e.g. "Confirmation")
+      <ul>
+        <li>Rule: "Stochastic must be below 80 and rising"</li>
+      </ul>
+    </li>
+  </ul>
+</li>
+</ul>
 <p>This structure lets you organise your rules logically — keeping related conditions together — rather than having one long, unstructured list.</p>
+
 <h2>Rule Groups</h2>
 <p>A rule group is a named cluster of related rules. You can label a group anything you like. For example:</p>
 <ul>
@@ -98,21 +116,24 @@
 <li>"Invalidation"</li>
 </ul>
 <p>Groups are purely for your own clarity. They don't affect how the strategy flow works — every rule in every group is displayed during the flow for you to check off.</p>
+
 <h2>Writing Good Rules</h2>
 <p>The best rules are <strong>specific, objective, and unambiguous</strong>. A good rule is one you can look at a chart and say with certainty: "yes" or "no."</p>
 <p><strong>Too vague:</strong></p>
-<div class="callout">"Market must look bullish"</div>
+<p>"Market must look bullish"</p>
 <p><strong>Specific and testable:</strong></p>
-<div class="callout">"Price must be above the 50 EMA on the 4H chart and the 200 EMA on the daily chart"</div>
+<p>"Price must be above the 50 EMA on the 4H chart and the 200 EMA on the daily chart"</p>
 <p><strong>Too vague:</strong></p>
-<div class="callout">"Good risk/reward"</div>
+<p>"Good risk/reward"</p>
 <p><strong>Specific:</strong></p>
-<div class="callout">"Minimum 2:1 risk-reward ratio to target. Stop no wider than 1.5% of account"</div>
+<p>"Minimum 2:1 risk-reward ratio to target. Stop no wider than 1.5% of account"</p>
 <p>The more specific your rules, the more honest the strategy flow checklist becomes.</p>
+
 <h2>Conditions and Opposites</h2>
 <p>Within a rule, you can specify <strong>conditions</strong> — structured criteria using the built-in condition picker. The condition picker gives you a set of common technical and market-structure conditions (e.g. "price above X moving average", "RSI above 50", "breakout of level") that you can select and configure.</p>
 <p>Each condition also has an <strong>opposite</strong> — which is automatically available to flip the condition. This is useful when you want the same condition checked in reverse for short trades.</p>
 <p>You don't have to use the condition picker. You can write rules entirely in free text if you prefer — most traders do.</p>
+
 <h2>Enabling and Disabling Rules</h2>
 <p>Any individual rule can be toggled off without deleting it. This is useful when:</p>
 <ul>
@@ -121,11 +142,14 @@
 <li>You're iterating on your rules over time</li>
 </ul>
 <p>Disabled rules are greyed out in the editor and are skipped during the strategy flow.</p>
+
 <h2>Reordering Rules</h2>
 <p>Long-press any rule to enter reorder mode, then drag it to the position you want. The order of rules in the editor is the order they appear in the strategy flow — so organise them in the logical sequence you want to check them.</p>
+
 <h2>How Many Rules Is Too Many?</h2>
 <p>There's no hard limit, but be practical. The strategy flow is a checklist you'll run before every trade. If your strategy has 40 rules, you may find yourself skimming rather than genuinely checking each one.</p>
 <p>A good target is <strong>5–15 rules per strategy</strong>, covering the most important conditions. You can always add notes and context inside individual rules rather than creating a separate rule for every nuance.</p>
+
 <h2>The Direction Block</h2>
 <p>At the top of each strategy is a <strong>Trade Direction</strong> setting: Long, Short, or Both. This affects:</p>
 <ul>
@@ -133,6 +157,7 @@
 <li>Whether a Directional Bias section appears in the flow</li>
 </ul>
 <p>Set this to match how you actually trade the setup. If you take both long and short trades with the same entry logic (just mirrored), choose "Both."</p>
+
 <h2>Copying a Strategy</h2>
 <p>There is no one-tap duplicate feature, but you can use an <strong>example strategy</strong> as a reference and build your own version manually. Many traders start by reviewing an example strategy and then building a personalised version with their own conditions.</p>
 
@@ -146,9 +171,7 @@
       <hr class="article-divider" />
 
       <div class="article-nav">
-        <a href="creating-your-first-strategy.html">← Creating Your First Strategy</a>
-        <a href="/help/">All Articles</a>
-        <a href="running-a-strategy-flow.html">Running a Strategy Flow →</a>
+        <a href="/help/">← Help Centre</a>
       </div>
 
     </div>

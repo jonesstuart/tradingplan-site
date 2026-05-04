@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>iCloud Sync Explained — TradingPlan Help</title>
-  <meta name="description" content="iCloud Sync Explained. TradingPlan help centre." />
+  <meta name="description" content="How TradingPlan uses iCloud to sync your data, what syncs, when it syncs, and what to do if sync is slow." />
   <meta name="robots" content="index, follow" />
 
   <script>
@@ -77,13 +77,14 @@
 
       <div class="article-meta">
         <span class="article-id">#061</span>
-        <a href="/help/" class="article-cat">Data & Sync</a>
+        <a href="/help/" class="article-cat">Data &amp; Sync</a>
         <span class="article-date">Last updated: April 2026</span>
       </div>
 
       <h1 class="article-title">iCloud Sync Explained</h1>
 
       <div class="article-body">
+
 <h2>How TradingPlan Uses iCloud</h2>
 <p>All your TradingPlan data is stored in iCloud's private database, associated with your Apple ID. This means:</p>
 <ul>
@@ -92,6 +93,7 @@
 <li>Your data is private — only your devices can access it</li>
 <li>Even if you delete and reinstall the app, your data returns when you sign back in</li>
 </ul>
+
 <h2>What Syncs</h2>
 <p>Everything in TradingPlan syncs via iCloud:</p>
 <ul>
@@ -103,11 +105,13 @@
 <li>Dashboard widget preferences and layout</li>
 </ul>
 <p><strong>App preferences</strong> (notification settings, app lock settings, biometric preferences) sync separately via iCloud Key-Value Storage — also automatically.</p>
+
 <h2>What Doesn't Sync</h2>
 <ul>
 <li><strong>Local app settings</strong> tied to a specific device (like whether a particular sheet is open)</li>
 <li><strong>Profile photo</strong> syncs as part of your user profile data, but large images may take slightly longer</li>
 </ul>
+
 <h2>When Does Sync Happen?</h2>
 <p>Sync happens automatically in the background. There's no manual sync button. Changes you make on one device typically appear on your other devices within a few seconds to a few minutes, depending on:</p>
 <ul>
@@ -115,24 +119,29 @@
 <li>Whether iCloud is experiencing any delays</li>
 <li>Whether the app is open in the background on the receiving device</li>
 </ul>
+
 <h2>Why Sync Might Be Slow</h2>
 <p>Sync works via Apple's CloudKit infrastructure. Occasional delays are normal and usually resolve themselves within minutes. Sync can be slower when:</p>
 <ul>
 <li>Either device has a poor internet connection</li>
 <li>The receiving device hasn't been opened recently (changes will appear next time it's opened)</li>
-<li>iCloud is experiencing a service disruption (rare — check <a href="https://www.apple.com/support/systemstatus/" target="_blank" rel="noopener">Apple System Status</a>)</li>
+<li>iCloud is experiencing a service disruption (rare — check <a href="https://www.apple.com/support/systemstatus/">Apple System Status</a>)</li>
 </ul>
+
 <h2>How to Check Sync Is Working</h2>
 <ol>
 <li>Make a small change on one device (e.g. update a business note)</li>
 <li>Open the app on another device</li>
 <li>The change should appear within a few minutes</li>
 </ol>
-<p>If it doesn't, see <a href="../08-Troubleshooting/data-not-syncing.html">Data Not Syncing</a>.</p>
+<p>If it doesn't, see <a href="data-not-syncing.html">Data Not Syncing</a>.</p>
+
 <h2>iCloud Storage</h2>
 <p>TradingPlan data is small and won't meaningfully impact your iCloud storage. Even a complete plan with many strategies and routines takes up only a few megabytes.</p>
+
 <h2>Privacy</h2>
 <p>Your data is stored in iCloud's private database — it's encrypted and only accessible to your devices via your Apple ID. TradingPlan cannot access your iCloud data; only you can.</p>
+
 <h2>Simulator / No iCloud Account</h2>
 <p>If you're running TradingPlan on a device that isn't signed in to iCloud, or in certain test environments, the app will store data locally only (no sync). A sign-in prompt will appear if you haven't signed in with Apple yet.</p>
 
@@ -146,9 +155,7 @@
       <hr class="article-divider" />
 
       <div class="article-nav">
-        <span></span>
-        <a href="/help/">All Articles</a>
-        <a href="multiple-devices.html">Using TradingPlan on Multiple Devices →</a>
+        <a href="/help/">← Help Centre</a>
       </div>
 
     </div>

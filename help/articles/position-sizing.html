@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Position Sizing — TradingPlan Help</title>
-  <meta name="description" content="Position Sizing. TradingPlan help centre." />
+  <meta name="description" content="How to set up position sizing in TradingPlan — the four methods explained and how to choose the right one for you." />
   <meta name="robots" content="index, follow" />
 
   <script>
@@ -84,9 +84,11 @@
       <h1 class="article-title">Position Sizing</h1>
 
       <div class="article-body">
+
 <h2>What is Position Sizing?</h2>
 <p>Position sizing is how you determine how large a trade is relative to your account. It's not just about picking a number — it's about ensuring that no single trade can seriously damage your account, while still making the expected return worthwhile.</p>
 <p>Getting this right is arguably more important than your entry strategy. A trader with an average entry strategy and excellent position sizing will outperform a trader with a great entry strategy and poor position sizing over any meaningful sample size.</p>
+
 <h2>The Four Methods</h2>
 <h3>Fixed Percentage (Recommended for most traders)</h3>
 <p>You risk a fixed percentage of your account on every trade.</p>
@@ -99,16 +101,19 @@
 <li>Aggressive: 2%+ (not recommended unless your strategy has been thoroughly tested)</li>
 </ul>
 <p><strong>Setting it up:</strong> Go to Risk Management → Position Sizing, select <strong>Fixed %</strong>, and enter your risk percentage. Use the stepper to adjust in 0.1% increments.</p>
+
 <h3>Fixed Lot</h3>
 <p>You trade the same position size every time, regardless of stop distance or account size.</p>
 <p><strong>How it works:</strong> You decide on a fixed number of lots (or contracts, or shares) and trade that amount every time.</p>
 <p><strong>When it's used:</strong> Some prop firm traders or systematic traders use this where position size is dictated externally. It's less adaptive than fixed percentage but simpler to calculate in real time.</p>
 <p><strong>Setting it up:</strong> Select <strong>Fixed Lot</strong> and enter your lot size. Adjust in 0.01 increments.</p>
+
 <h3>Fixed Amount</h3>
 <p>You risk a fixed cash amount per trade regardless of account size.</p>
 <p><strong>How it works:</strong> If you've decided to risk £200 per trade, every trade risks £200 — whether your account is £5,000 or £50,000.</p>
 <p><strong>When it's used:</strong> Some traders prefer this when building a trading account from scratch with a fixed monthly funding contribution, or when their strategy has a very wide range of stop distances and they want consistent cash exposure.</p>
 <p><strong>Setting it up:</strong> Select <strong>Fixed Amount</strong>, choose your currency, and enter the amount.</p>
+
 <h3>Custom</h3>
 <p>Your position sizing method doesn't fit any of the above — describe it in your own words.</p>
 <p><strong>Examples of custom methods:</strong></p>
@@ -118,9 +123,11 @@
 <li>"Kelly Criterion adjusted for win rate and average R"</li>
 </ul>
 <p><strong>Setting it up:</strong> Select <strong>Other</strong> and type your method description.</p>
+
 <h2>Drawdown Limits and Position Sizing Work Together</h2>
 <p>Position sizing alone doesn't protect you from a catastrophic session. You also need drawdown limits. Even with 1% risk per trade, five losing trades in a row during one session is a 5% drawdown in a day.</p>
 <p>Set your drawdown limits in the section directly below Position Sizing. See <a href="risk-management-overview.html">Risk Management Overview</a> for more.</p>
+
 <h2>Common Mistakes</h2>
 <p><strong>Risking too much per trade</strong> — The emotional pull to "make it back quickly" after a loss leads many traders to increase position size at the worst possible time. Fix your percentage and don't deviate.</p>
 <p><strong>Not adjusting for stop width</strong> — Fixed lot traders often don't account for the fact that a wide stop requires a smaller position to risk the same amount. If your stop is twice as wide as usual, your position should be half the size.</p>
@@ -136,9 +143,7 @@
       <hr class="article-divider" />
 
       <div class="article-nav">
-        <a href="risk-management-overview.html">← Risk Management Overview</a>
-        <a href="/help/">All Articles</a>
-        <a href="advanced-risk-features.html">Advanced Risk Features (Pro) →</a>
+        <a href="/help/">← Help Centre</a>
       </div>
 
     </div>
